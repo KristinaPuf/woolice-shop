@@ -251,3 +251,14 @@ h2 {
 .btn:hover {
   background-color: #b5835a;
 }
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image img {
+    width: 100%;
+  }
+}
