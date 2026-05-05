@@ -300,6 +300,7 @@ h2 {
 
 /* POZICIJA ZA WHY */
 .sticker-why {
+  position: absolute;
   top: 25%;
   right: -20px;
 }
@@ -320,7 +321,7 @@ h2 {
   top: 560px;
 
   
-  left: 200;     /* ugasi left */
+  left: 200px;     /* ugasi left */
 
   transform: rotate(2deg);
   
