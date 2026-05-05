@@ -262,3 +262,76 @@ h2 {
     width: 100%;
   }
 }
+
+.why {
+  position: relative;
+}
+
+/* samo tekst ide u flex */
+.why-content {
+  display: flex;
+}
+
+/* TEXT */
+.text {
+  flex: 1;
+}
+
+/* STICKER OVERLAY */
+.sticker {
+  position: absolute !important;
+
+  width: 120px !important;
+  height: auto !important;
+
+  left: 440px !important;
+  top: 180px;
+  bottom: auto;
+
+  
+  z-index: 9999;
+   
+
+}
+ .sticker {
+  opacity: 0.85;
+  filter: none;
+  }
+
+/* POZICIJA ZA WHY */
+.sticker-why {
+  top: 25%;
+  right: -20px;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .sticker {
+    width: 80px;
+    right: -10px;
+  }
+}
+
+.sticker-price {
+  position: absolute;
+
+  width: 120px;
+
+  top: 560px;
+
+  
+  left: 200;     /* ugasi left */
+
+  transform: rotate(2deg);
+  
+
+  z-index: 10;
+  
+}
+
+.price {
+  position: relative;
+}
+
+
+
