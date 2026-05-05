@@ -305,13 +305,7 @@ h2 {
   right: -20px;
 }
 
-/* mobile */
-@media (max-width: 768px) {
-  .sticker {
-    width: 80px;
-    right: -10px;
-  }
-}
+
 
 .sticker-price {
   position: absolute;
@@ -332,6 +326,24 @@ h2 {
 
 .price {
   position: relative;
+}
+
+@media (max-width: 768px) {
+
+  .sticker {
+    width: 80px; /* manji stikeri */
+  }
+
+  .sticker-why,
+  .sticker-price {
+    left: 20px !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: -20px; /* ispod teksta */
+    
+    transform: rotate(0deg); /* da ne smeta na malom ekranu */
+  }
+
 }
 
 
