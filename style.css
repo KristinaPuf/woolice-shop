@@ -1,32 +1,58 @@
-/* ====== OSNOVNO ====== */
-/*TEST PROMENA*/
-/*test*/
+a {
+  color: #2b2b2b !important;
+  text-decoration: none;
+}
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f5efe6;
-  color: #2b2b2b;
-  line-height: 1.6;
+html {
+  scroll-behavior: smooth;
 }
 
-/* ====== LOGO / HEADER ====== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f6efe7;
+  color: #2b2b2b;
+  line-height: 1.7;
+}
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+h2 {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   HEADER
+========================= */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: #f5efe6;
+  padding: 25px 8%;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .nav {
   display: flex;
   gap: 20px;
-  align-items: center;
 }
 
 .nav a {
@@ -36,364 +62,296 @@ body {
 }
 
 .nav-btn {
-  background-color: #c8a98d;
-  padding: 8px 14px;
-  border-radius: 20px;
+  background: #c8a98d;
+  padding: 8px 16px;
+  border-radius: 30px;
   color: white;
 }
 
-.logo {
-  width: 90px;
-  height: 90px;
-  object-fit: contain;
-  border-radius: 50%;
-  background-color: #f5efe6;
-  padding: 8px;
-}
-
-
-/* ====== HERO ====== */
+/* =========================
+   HERO
+========================= */
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 80px 10%;
-  gap: 40px;
+  padding: 90px 8%;
+  gap: 50px;
 }
 
 .hero-text {
-  max-width: 500px;
+  max-width: 520px;
 }
 
 .hero h1 {
-  font-size: 48px;
+  font-size: 52px;
+  line-height: 1.2;
   margin-bottom: 20px;
 }
 
 .hero p {
   font-size: 18px;
-  margin-bottom: 30px;
   color: #555;
+  margin-bottom: 25px;
 }
 
 .hero-btn {
-  background-color: #d4a373;
+  display: inline-block;
+  background: #d4a373;
   color: white;
-  padding: 15px 25px;
+  padding: 14px 24px;
+  border-radius: 10px;
   text-decoration: none;
-  border-radius: 8px;
   transition: 0.3s;
 }
 
 .hero-btn:hover {
-  background-color: #b5835a;
+  transform: scale(1.05);
+  background: #b5835a;
 }
 
-.hero-image img {
-  width: 400px;
-  border-radius: 20px;
+.hero-sticker {
+  
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
 }
 
-.btn:hover {
-  background-color: #b89578;
-}
-
-/* ====== SECTIONS ====== */
+/* =========================
+   SECTIONS
+========================= */
 section {
-  padding: 70px 20px;
+  padding: 80px 8%;
   text-align: center;
 }
 
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin-bottom: 20px;
-}
-
-/* ====== HOW IT WORKS ====== */
+/* =========================
+   HOW IT WORKS
+========================= */
 .steps {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   max-width: 600px;
   margin: auto;
 }
 
-/* ====== WHY CHOOSE ====== */
-.why ul {
-  list-style: none;
-  max-width: 600px;
-  margin: auto;
+/* =========================
+   WHY SECTION (CLEAN CARDS)
+========================= */
+.why-content {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
-.why li {
+.why-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 16px;
+  width: 260px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+}
+
+.why-card h3 {
   margin-bottom: 10px;
 }
 
-/* ====== GALLERY ====== */
+.why-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* =========================
+   GALLERY
+========================= */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 18px;
   max-width: 1000px;
   margin: 40px auto 0;
 }
 
 .gallery-grid img {
   width: 100%;
-  height: 360px;   /*  VEĆA VISINA */
+  height: 340px;
   object-fit: cover;
-  border-radius: 30px;
+  border-radius: 16px;
   transition: 0.3s;
 }
 
 .gallery-grid img:hover {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
-/* ====== PRICE ====== */
+/* =========================
+   PRICE
+========================= */
 .price {
-  background-color: #e8dccd;
+  background: #eee0d2;
+  padding: 80px 20px;
 }
 
-/* ====== ABOUT ====== */
-.about p {
-  max-width: 800px;
-  margin: auto;
-  white-space: pre-line;
+.price-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-/* ====== FAQ ====== */
-.faq p {
-  max-width: 700px;
-  margin: 10px auto;
+.text {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-/* ====== CONTACT ====== */
+.details {
+  margin-top: 20px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 2;
+}
+
+/* =========================
+   ORDER FORM
+========================= */
+.order-form {
+  max-width: 450px;
+  margin: 40px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-form input,
+.order-form textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.order-form .btn {
+  background: #000;
+  color: white;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* =========================
+   CONTACT (REAL FIXED VERSION)
+========================= */
 .contact {
-  background-color: #e8dccd;
+  text-align: center;
+  padding: 90px 20px;
 }
 
-/* ====== FOOTER ====== */
+.contact-box {
+  display: inline-block;
+  padding: 25px 35px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+  margin-top: 20px;
+}
+
+.contact-box p {
+  margin: 10px 0;
+  font-size: 15px;
+}
+
+.contact-box a {
+  color: #2b2b2b;
+  text-decoration: none;
+  border-bottom: 1px solid #c8a98d;
+}
+
+/* =========================
+   FOOTER
+========================= */
 .footer {
   padding: 30px;
   text-align: center;
   font-size: 14px;
 }
 
-.contact a {
-  color: #2b2b2b;
-  text-decoration: none;
-  border-bottom: 1px solid #c8a98d;
-  transition: 0.3s;
-}
-
-.contact a:hover {
-  opacity: 0.7;
-}
-
-.details {
-  max-width: 500px;
-  margin: 20px auto;
-  font-size: 14px;
-  line-height: 2.2;
-  text-align: left;
-  letter-spacing: 0.2px;
-}
-
-.details a {
-  color: #2b2b2b;
-  text-decoration: none;
-  border-bottom: 1px solid #c8a98d;
-}
-
-.details a:hover {
-  opacity: 0.7;
-}
-
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: repeat(1, 1fr);
-  }
 
-  .gallery-grid img {
-    height: 300px;
-  }
-}
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-@media (max-width: 768px) {
-  .details {
-    max-width: 90%;
-  }
-}
-
-.btn {
-  display: inline-block;
-  background-color: #d4a373;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #b5835a;
-}
-
-@media (max-width: 768px) {
   .hero {
     flex-direction: column;
     text-align: center;
   }
 
+  .hero h1 {
+    font-size: 34px;
+  }
+
   .hero-image img {
     width: 100%;
+    max-width: 350px;
   }
-}
 
-.why {
-  position: relative;
-}
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
 
-/* samo tekst ide u flex */
-.why-content {
+  .why-card {
+    width: 90%;
+  }
+
+  .header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 8%;
 }
 
-/* TEXT */
-.text {
-  flex: 1;
-}
-
-/* STICKER OVERLAY */
-.sticker {
-  position: absolute !important;
-
-  width: 120px !important;
-  max-width: 120px;
-  height: auto !important;
-
-  left: 440px !important;
-  top: 180px;
-  bottom: auto;
-
-  will-change: transform;
-  backface-visibility: hidden;
-
-  
-  z-index: 9999;
-   
-
-}
- .sticker {
-  opacity: 0.85;
-  filter: none;
-  }
-
-/* POZICIJA ZA WHY */
-.sticker-why {
-  position: absolute;
-  top: 25%;
-  right: -20px;
-}
-
-
-
-.sticker-price {
-  position: absolute;
-
-  width: 120px;
-
-  top: 560px;
-
-  
-  left: 200px;     /* ugasi left */
-
-  transform: rotate(2deg);
-  
-
-  z-index: 10;
-  
-}
-
-.price {
-  position: relative;
-}
-
-@media (max-width: 768px) {
-
-  .sticker {
-    width: 80px; /* manji stikeri */
-  }
-
-  .sticker-why,
-  .sticker-price {
-    left: 20px !important;
-    right: auto !important;
-    top: auto !important;
-    bottom: -20px; /* ispod teksta */
-    
-    transform: rotate(0deg); /* da ne smeta na malom ekranu */
-  }
-
-}
-
-/* ORDER FORM */
-.order-form {
-  max-width: 450px;
-  margin: 40px auto;
-  padding: 25px;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+.nav {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transform: translateX(-10px);
+  align-items: center;
 }
 
-/* inputi */
-.order-form input,
-.order-form textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-family: inherit;
-  font-size: 14px;
+.nav a,
+.nav-btn {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
 }
 
-/* textarea */
-.order-form textarea {
-  min-height: 100px;
-  resize: vertical;
+.nav-btn {
+  background-color: #c8a98d;
+  padding: 8px 14px;
+  border-radius: 20px;
+  color: white;
+}
+.hero-sticker {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  border: 6px solid white;
+  background: white;
+  padding: 5px;
 }
 
-/* dugme */
-.order-form .btn {
-  background: #000;
-  color: #fff;
-  padding: 12px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s;
+section h2 {
+  text-align: center;
 }
-
-.order-form .btn:hover {
-  background: #333;
 }
-
 
 
