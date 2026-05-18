@@ -289,6 +289,9 @@ h2 {
   top: 180px;
   bottom: auto;
 
+  will-change: transform;
+  backface-visibility: hidden;
+
   
   z-index: 9999;
    
