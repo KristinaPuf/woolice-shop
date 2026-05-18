@@ -282,6 +282,7 @@ h2 {
   position: absolute !important;
 
   width: 120px !important;
+  max-width: 120px;
   height: auto !important;
 
   left: 440px !important;
