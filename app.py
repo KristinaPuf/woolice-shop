@@ -1,19 +1,28 @@
-#test change
 import requests
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import json
+import os
+from dotenv import load_dotenv
 
-app = Flask(_name_)
+# Load .env
+load_dotenv()
+
+app = Flask(__name__)
 CORS(app)
 
 ORDERS_FILE = "orders.json"
 
-# TELEGRAM SETTINGS
-BOT_TOKEN = "8637912065:AAG6x0A2Z8Oigt5MYaTjBxga878HMafy2iA
-CHAT_ID = "7908028371"
+# TELEGRAM SETTINGS (SAFE)
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
+
 
 def send_telegram_message(message):
+    if not BOT_TOKEN or not CHAT_ID:
+        print("Telegram not configured")
+        return
+
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
     requests.post(url, data={
@@ -30,10 +39,12 @@ def load_orders():
     except:
         return []
 
+
 # SAVE ORDERS
 def save_orders(orders):
     with open(ORDERS_FILE, "w") as f:
         json.dump(orders, f, indent=2)
+
 
 # ORDER ROUTE
 @app.route("/order", methods=["POST"])
@@ -49,19 +60,21 @@ def order():
     message = f"""
 🐶 New Woolice Order
 
-👤 Name: {data['name']}
-📧 Email: {data['email']}
-📝 Details: {data['details']}
+👤 Name: {data.get('name')}
+📧 Email: {data.get('email')}
+📝 Details: {data.get('details')}
 """
 
     send_telegram_message(message)
 
     return jsonify({"message": "Order received!"})
 
+
 # GET ORDERS
 @app.route("/orders", methods=["GET"])
 def get_orders():
     return jsonify(load_orders())
 
-if _name_ == "_main_":
+
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000, debug=True)
