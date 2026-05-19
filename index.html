@@ -5,11 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Woolice Felts</title>
 
+
   <!-- Fontovi -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <link rel="preload" as="image" href="images/logo.jpeg">
+  <link rel="preload" as="image" href="images/heroslika.jpeg">
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MNPGMHPXGN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MNPGMHPXGN');
+
+</script>
 </head>
 <body>
 
@@ -26,35 +41,53 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-text">
-      <h1>Custom needle-felted dog sculptures</h1>
-      <p>Turn your pet into a timeless piece of art, handmade with love and attention to every detail.</p>
-      <a href="#price" class="btn">Order your sculpture</a>
-    </div>
-  </section>
+  <div class="hero-text">
+    <h1>Custom Needle Felted Dog Sculptures</h1>
+    <p>
+      A unique handmade portrait of Your dog, created from Your photos with love and attention to every detail.
+    </p>
+    <a href="#price" class="hero-btn">Order Your Custom Piece</a>
+  </div>
+
+  <div class="hero-image">
+    <img src="images/crnistiker-removebg-preview.png" class="hero-sticker" alt="Woolice hero image">
+  </div>
+</section>
 
   <!-- HOW IT WORKS -->
   <section class="how" id="how">
     <h2>How it works</h2>
     <div class="steps">
-      <div>Send me your pet’s photos</div>
-      <div>I carefully create your custom sculpture</div>
+      <div>Send me Your pet’s photos</div>
+      <div>I carefully create Your custom sculpture</div>
       <div>You receive a unique, handmade piece</div>
-      <div>A memory you can keep forever</div>
+      <div>A memory You can keep forever</div>
     </div>
   </section>
 
   <!-- WHY CHOOSE -->
   <section class="why">
-    <h2>Why choose Woolice Felts?</h2>
-    <ul>
-      <li>100% handmade with attention to detail</li>
-      <li>Each piece is one of a kind</li>
-      <li>Created with love and care</li>
-      <li>Based on your pet’s real personality</li>
-      <li>Over 10 years of experience</li>
-    </ul>
-  </section>
+  <h2>Why choose Woolice Felts?</h2>
+
+  <div class="why-content">
+
+    <div class="why-card">
+      <h3>✋ Handmade</h3>
+      <p>100% handmade with attention to every tiny detail.</p>
+    </div>
+
+    <div class="why-card">
+      <h3>🐶 Unique</h3>
+      <p>Each sculpture is one of a kind, just like your pet.</p>
+    </div>
+
+    <div class="why-card">
+      <h3>❤️ Made with love</h3>
+      <p>Created with patience, care and emotional connection.</p>
+    </div>
+
+  </div>
+</section>
 
   <!-- GALLERY -->
   <section class="gallery" id="gallery">
@@ -62,44 +95,51 @@
   <p>Every sculpture is unique and made to capture the spirit of each dog.</p>
 
   <div class="gallery-grid">
-      <img src="images/galerija1.jpeg">
-      <img src="images/galerija2.jpeg">
-      <img src="images/galerija3.jpeg">
-      <img src="images/galerija4.jpeg">
-      <img src="images/galerija5.jpeg">
-      <img src="images/galerija6.jpeg">
-      <img src="images/galerija10.jpeg">
-      <img src="images/galerija8.jpeg">
-      <img src="images/galerija9.jpeg">
+      <img src="images/galerija1.jpeg" loading="lazy">
+      <img src="images/galerija2.jpeg" loading="lazy">
+      <img src="images/galerija3.jpeg" loading="lazy">
+      <img src="images/galerija4.jpeg" loading="lazy">
+      <img src="images/galerija5.jpeg" loading="lazy">
+      <img src="images/galerija6.jpeg" loading="lazy">
+      <img src="images/galerija10.jpeg" loading="lazy">
+      <img src="images/galerija8.jpeg" loading="lazy">
+      <img src="images/galerija9.jpeg" loading="lazy">
     </div>
   </section>
 
   <!-- PRICE -->
   <section class="price" id="price">
-    <h2>Custom dog sculpture – $130</h2>
-    <p>Each sculpture is made to order from your photos.</p>
 
-<div class="details">
-  <strong>Details</strong><br><br>
-  -Looking for a heartfelt, handmade way to remember your beloved dog?
-I create custom needle felted dog sculptures, crafted with care from natural wool – each one made to capture the unique spirit of your pet.<br>
+  <div class="price-content">
 
+    <div class="text">
+      <h2>Custom dog sculpture – $130</h2>
+      <p>Each sculpture is made to order from Your photos.</p>
 
-You can send photos of Your pet to my email address: <a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a> <br>
+      <div class="details">
+        <strong>Details</strong><br><br>
+        Looking for a heartfelt, handmade way to remember Your beloved dog?<br><br>
 
-Waiting time for one dog sculpture is about 6-8 weeks! <br>
- 
-Ideal gift for dog lovers <br>
+        You can send photos to:
+        <a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a><br><br>
 
-Eyes: Round Black Glass<br>
+        Waiting time: 6–8 weeks<br>
+        Size: 3–4''<br>
+        Eyes: Round black glass<br>
+      </div>
+    </div>
 
-Size:  approximately 3-4''  tall<br>
+    <form id="order-form" class="order-form">
+      <input type="text" id="name" placeholder="Your name" required>
+      <input type="email" id="email" placeholder="Your email" required>
+      <textarea id="details" placeholder="Tell me about your dog"></textarea>
 
-Made of 100% natural wool and round glass eyes<br>
-</div>
+      <button type="submit" class="btn">Continue to PayPal</button>
+    </form>
 
-    <a href="https://paypal.me/woolicefelts/130" target="_blank" class="btn">Order now</a>
-  </section>
+  </div>
+
+</section>
 
   <!-- ABOUT -->
   <section class="about">
@@ -115,7 +155,7 @@ Made of 100% natural wool and round glass eyes<br>
 
       No two pieces are ever the same, just like no two dogs are the same.
 
-      Thank you for being here and trusting me with something so personal.
+      Thank You for being here and trusting me with something so personal.
     </p>
   </section>
 
@@ -124,23 +164,57 @@ Made of 100% natural wool and round glass eyes<br>
     <h2>FAQ</h2>
 
     <p><strong>How long does it take?</strong><br>Each sculpture takes approximately 6–8 weeks to complete, depending on current orders.</p>
-    <p><strong>What kind of photos should I send?</strong><br>Clear photos from different angles (front, side) help me capture your pet’s details as accurately as possible.</p>
+    <p><strong>What kind of photos should I send?</strong><br>Clear photos from different angles (front, side) help me capture Your pet’s details as accurately as possible.</p>
     <p><strong>Do you ship worldwide?</strong><br>Yes, I ship worldwide.</p>
     <p><strong>Can I request changes?</strong><br>Yes, small adjustments can be made during the process to ensure you’re happy with the result.</p>
   </section>
 
   <!-- CONTACT -->
   <section class="contact">
-    <h2>Contact</h2>
+  <h2>Contact</h2>
+
+  <div class="contact-box">
     <p>Have questions or special requests?</p>
-    <p>Email: <a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a></p>
-    <p>Instagram: <a href="https://instagram.com/woolicefelts" target="_blank">@woolicefelts</a></p>
-  </section>
+
+    <p>
+      📧 Email: 
+      <a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a>
+    </p>
+
+    <p>
+      📷 Instagram: 
+      <a href="https://instagram.com/woolicefelts" target="_blank">@woolicefelts</a>
+    </p>
+  </div>
+</section>
 
   <!-- FOOTER -->
   <footer class="footer">
     <p>© Woolice Felts</p>
   </footer>
+
+  <script>
+document.getElementById("order-form").addEventListener("submit", async function(e) {
+
+    e.preventDefault();
+
+    const orderData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        details: document.getElementById("details").value
+    };
+
+    await fetch("https://woolice-backed.onrender.com/order", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(orderData)
+    });
+
+    window.open("https://paypal.me/woolicefelts/130", "_blank");
+});
+</script>
 
 </body>
 </html>
