@@ -13,7 +13,7 @@ CORS(app)
 
 ORDERS_FILE = "orders.json"
 
-# TELEGRAM SETTINGS (SAFE)
+# TELEGRAM SETTINGS
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 
@@ -25,10 +25,13 @@ def send_telegram_message(message):
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
-    requests.post(url, data={
-        "chat_id": CHAT_ID,
-        "text": message
-    })
+    try:
+        requests.post(url, data={
+            "chat_id": CHAT_ID,
+            "text": message
+        })
+    except Exception as e:
+        print("Telegram error:", e)
 
 
 # LOAD ORDERS
@@ -66,9 +69,10 @@ def order():
 """
 
     send_telegram_message(message)
-        print("SENDING TO TELEGRAM:", message)
-        print("TOKEN:", BOT_TOKEN)
-        print("CHAT:", CHAT_ID)
+
+    print("SENDING TO TELEGRAM:", message)
+    print("TOKEN:", BOT_TOKEN)
+    print("CHAT:", CHAT_ID)
 
     return jsonify({"message": "Order received!"})
 
@@ -79,5 +83,5 @@ def get_orders():
     return jsonify(load_orders())
 
 
-if __name__ == "__main__":
+if __name__=="__main__":
     app.run(host="0.0.0.0", port=10000, debug=True)
