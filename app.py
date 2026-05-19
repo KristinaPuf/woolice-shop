@@ -66,6 +66,9 @@ def order():
 """
 
     send_telegram_message(message)
+        print("SENDING TO TELEGRAM:", message)
+        print("TOKEN:", BOT_TOKEN)
+        print("CHAT:", CHAT_ID)
 
     return jsonify({"message": "Order received!"})
 
