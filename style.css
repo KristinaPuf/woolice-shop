@@ -3,7 +3,6 @@ a {
   text-decoration: none;
 }
 
-
 * {
   margin: 0;
   padding: 0;
@@ -34,13 +33,18 @@ h2 {
 }
 
 /* =========================
-   HEADER
+   HEADER (IMPROVED)
 ========================= */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 8%;
+  padding: 20px 8%;
+  position: sticky;
+  top: 0;
+  background: rgba(246, 239, 231, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
 }
 
 .logo {
@@ -53,11 +57,10 @@ h2 {
 .nav {
   display: flex;
   gap: 20px;
+  align-items: center;
 }
 
 .nav a {
-  text-decoration: none;
-  color: #2b2b2b;
   font-size: 14px;
 }
 
@@ -65,11 +68,11 @@ h2 {
   background: #c8a98d;
   padding: 8px 16px;
   border-radius: 30px;
-  color: white;
+  color: white !important;
 }
 
 /* =========================
-   HERO
+   HERO (IMPROVED)
 ========================= */
 .hero {
   display: flex;
@@ -110,8 +113,30 @@ h2 {
   background: #b5835a;
 }
 
+.hero-secondary-btn {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 14px 20px;
+  border: 1px solid #2b2b2b;
+  border-radius: 10px;
+  color: #2b2b2b;
+  text-decoration: none;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-note {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #666;
+}
+
 .hero-sticker {
-  
   background: transparent !important;
   border: none !important;
   padding: 0 !important;
@@ -138,7 +163,7 @@ section {
 }
 
 /* =========================
-   WHY SECTION (CLEAN CARDS)
+   WHY SECTION
 ========================= */
 .why-content {
   display: flex;
@@ -159,15 +184,6 @@ section {
 
 .why-card:hover {
   transform: translateY(-5px);
-}
-
-.why-card h3 {
-  margin-bottom: 10px;
-}
-
-.why-card p {
-  font-size: 14px;
-  color: #555;
 }
 
 /* =========================
@@ -252,31 +268,14 @@ section {
 }
 
 /* =========================
-   CONTACT (REAL FIXED VERSION)
+   CONTACT
 ========================= */
-.contact {
-  text-align: center;
-  padding: 90px 20px;
-}
-
 .contact-box {
   display: inline-block;
   padding: 25px 35px;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.10);
-  margin-top: 20px;
-}
-
-.contact-box p {
-  margin: 10px 0;
-  font-size: 15px;
-}
-
-.contact-box a {
-  color: #2b2b2b;
-  text-decoration: none;
-  border-bottom: 1px solid #c8a98d;
 }
 
 /* =========================
@@ -289,22 +288,31 @@ section {
 }
 
 /* =========================
-   MOBILE
+   MOBILE (FIXED PRO)
 ========================= */
 @media (max-width: 768px) {
 
   .hero {
     flex-direction: column;
     text-align: center;
+    padding: 60px 20px;
   }
 
   .hero h1 {
     font-size: 34px;
   }
 
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
   .hero-image img {
     width: 100%;
-    max-width: 350px;
+    max-width: 320px;
   }
 
   .gallery-grid {
@@ -315,43 +323,18 @@ section {
     width: 90%;
   }
 
+  .nav {
+    gap: 10px;
+    font-size: 12px;
+  }
+
   .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 8%;
-}
+    padding: 15px 20px;
+  }
 
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.nav a,
-.nav-btn {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-}
-
-.nav-btn {
-  background-color: #c8a98d;
-  padding: 8px 14px;
-  border-radius: 20px;
-  color: white;
-}
-.hero-sticker {
-  width: 250px;
-  border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-  border: 6px solid white;
-  background: white;
-  padding: 5px;
-}
-
-section h2 {
-  text-align: center;
-}
+  section {
+    padding: 60px 20px;
+  }
 }
 
 
