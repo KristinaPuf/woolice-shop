@@ -579,6 +579,11 @@ section h2::after {
     margin-top: 0;
   }
 
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+
   .hero-image {
     flex: 0 0 auto;
     margin-top: 0 !important; /* Ovo uklanja ono preklapanje od -430px */
@@ -609,6 +614,12 @@ section h2::after {
   .nav-links {
     gap: 15px; /* Smanji razmak u meniju da stane */
     font-size: 0.8rem;
+  }
+
+  .header {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
   }
 }
 
