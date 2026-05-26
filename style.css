@@ -567,5 +567,50 @@ section h2::after {
 }
 
 
+/* --- POPRAVKA ZA MOBILNI (DODAJ NA DNO FAJLA) --- */
+@media (max-width: 768px) {
+  /* 1. Sređivanje Hero sekcije da se ne preklapa */
+  .hero {
+    display: flex;
+    flex-direction: column; /* Ređa elemente jedan ispod drugog */
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 0;
+  }
+
+  .hero-image {
+    flex: 0 0 auto;
+    margin-top: 0 !important; /* Ovo uklanja ono preklapanje od -430px */
+    width: 100%;
+    order: -1; /* Pomeri sliku iznad teksta */
+  }
+
+  .hero-sticker {
+    width: 250px !important; /* Smanji psa da bude lepši na mobu */
+    margin: 0 auto 20px auto;
+  }
+
+  .hero h1 {
+    font-size: 32px !important; /* Manji naslov */
+  }
+
+  .hero-buttons {
+    justify-content: center; /* Centriraj dugmiće */
+    gap: 10px;
+  }
+
+  /* 2. Sređivanje Price sekcije (dve kolone u jednu) */
+  .price-container {
+    flex-direction: column;
+  }
+
+  /* 3. Sređivanje navigacije (da se ne razvlači) */
+  .nav-links {
+    gap: 15px; /* Smanji razmak u meniju da stane */
+    font-size: 0.8rem;
+  }
+}
+
 
 
