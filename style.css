@@ -1,452 +1,571 @@
+/* =========================
+   OSNOVNA PODEŠAVANJA
+========================= */
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: 100px;
+}
+
+body { 
+  font-family: sans-serif; 
+  line-height: 1.6;  
+  color: #333; 
+}
+
 a {
   color: #2b2b2b !important;
-  text-decoration: none;
+  text-decoration: none; 
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #f6efe7;
-  color: #2b2b2b;
-  line-height: 1.7;
-}
-
-/* =========================
-   TYPOGRAPHY
-========================= */
 h1, h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Playfair Display', serif; 
 }
 
 h2 {
-  font-size: 34px;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+section {
+  display: block !important;
+  width: 100%;
+  padding: 80px 20px !important; /* Ovo daje 'vazduh' sa svih strana */
+  margin: 0 auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Naslov sekcija sa tačkom */
+section h2::after {
+  content: "•"; 
+  color: #d4a373; 
+  font-size: 24px; 
+  display: block; 
+  margin-top: 5px; 
+  line-height: 0.5; 
 }
 
 /* =========================
-   HEADER (IMPROVED)
+   HEADER & LOGO
 ========================= */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 8%;
+  padding: 15px 8%;
   position: sticky;
   top: 0;
-  background: rgba(246, 239, 231, 0.85);
+  background: rgba(246, 239, 231, 0.95); /* Elegantna, blago krem boja */
   backdrop-filter: blur(10px);
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Suptilna senka daje dubinu */
 }
 
+/* 2. Logo - diskretan i elegantan */
 .logo {
-  width: 95px;
-  height: 95px;
+  width: 60px; /* Smanjeno - prevelik logo deluje kao crtani film */
+  height: 60px;
   border-radius: 50%;
-  object-fit: contain;
-  object-position: 50% 30%;
-  padding-bottom: 6px;
+  object-fit: cover;
   background: #f1b3ab;
+  transition: transform 0.3s ease;
 }
 
-.nav {
+.logo:hover {
+  transform: rotate(5deg); /* Blaga interakcija kad se pređe mišem */
+}
+
+/* 3. Linkovi - centrirano i uredno */
+.nav-links {
   display: flex;
-  gap: 20px;
+  list-style: none;
+  gap: 40px; /* Veći razmak deluje otmenije */
   align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-.nav a {
-  font-size: 14px;
+.nav-links a {
+  text-decoration: none;
+  color: #5d534a; /* Tamnija braon boja umesto obične crne */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
+.nav-links a:hover {
+  color: #a89685;
+}
+
+/* 4. Dugme - "Call to Action" */
 .nav-btn {
-  background: #c8a98d;
-  padding: 8px 16px;
-  border-radius: 30px;
+  background-color: #a89685;
   color: white !important;
+  padding: 10px 25px;
+  border-radius: 50px;
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background-color: transparent;
+  color: #a89685 !important;
+  border-color: #a89685;
+  box-shadow: 0 5px 15px rgba(168, 150, 133, 0.2);
 }
 
 /* =========================
-   HERO (IMPROVED)
+   HERO - KOMPLETNO SREĐENO
 ========================= */
+
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 90px 8%;
-  gap: 50px;
+  display: flex; 
+  align-items: flex-start; /* Ovo će podići oba elementa na vrh kontejnera */
+  justify-content: space-between; 
+  padding: 80px 8%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
 }
 
 .hero-text {
-  max-width: 520px;
+  flex: 1;
+  text-align: left;
 }
 
-.hero h1 {
-  font-size: 52px;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-  color: #555;
-  margin-bottom: 25px;
-}
-
-.hero-btn {
-  display: inline-block;
-  background: #d4a373;
-  color: white !important; /* Osigurava da tekst uvek bude beo */
-  padding: 14px 28px;
-  border-radius: 50px; /* Potpuno zaobljeno dugme za "soft" izgled */
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-  box-shadow: 0 4px 15px rgba(214, 163, 115, 0.3);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.hero-btn:hover {
-  transform: translateY(-2px); /* Lagano se podigne */
-  background: #b5835a;
-  box-shadow: 0 6px 20px rgba(181, 131, 90, 0.4); /* Senka isprati dugme */
-}
-
-.hero-secondary-btn {
-  display: inline-block;
-  padding: 14px 20px;
-  border: 1px solid #2b2b2b;
-  border-radius: 10px;
-  color: #2b2b2b;
-  text-decoration: none;
-}
-
-.hero-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 10px;
-  flex-wrap: wrap;
-}
-
-.hero-note {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #666;
+.hero-image {
+  flex: 0 0 350px;
+  text-align: right;
+  margin-top: -430px;
 }
 
 .hero-sticker {
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  box-shadow: none !important;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-section {
-  padding: 80px 8%;
-  text-align: center;
-  scroll-margin-top: 110px;
-}
-
-section h2 {
-  position: relative;
-  margin-bottom: 40px; /* Malo više prostora ispod naslova */
-}
-
-/* Mala elegantna linija ispod svakog naslova sekcije */
-section h2::after {
-  content: "•";
-  color: #d4a373;
-  font-size: 24px;
+  width: 350px; /* Fiksira veličinu slike */
+  height: auto;
   display: block;
-  margin-top: 5px;
-  line-height: 0.5;
+  margin-left: auto;
 }
 
-/* =========================
-   HOW IT WORKS
-========================= */
-.steps {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 600px;
-  margin: auto;
+/* Ostatak tvog originalnog dizajna koji smo sačuvali */
+.hero h1 {
+  font-size: 52px; 
+  line-height: 1.2; 
+  margin-bottom: 20px; 
 }
 
-/* =========================
-   WHY SECTION
-========================= */
-.why-content {
+.hero-btn, .hero-secondary-btn {
+  padding: 15px 30px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease; 
+  display: inline-block;
+  color: #fff; /* Vraćamo boju koju si imala */
+}
+
+/* Stilovi za dugmiće i njihove boje ostaju netaknuti */
+.hero-btn { background-color: #ebcdb1; }
+.hero-secondary-btn { background-color: #ebcdb1; }
+
+.hero-btn:hover, .hero-secondary-btn:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1); 
+  background-color: #fffdfa;
+  color: white;
+}
+
+.hero-buttons {
+  margin-top: 20px;
+  margin-bottom: 40px; 
+  gap: 30px;  
+  display: flex; /* Ovo vraća dugmiće u red */
+}         
+
+.hero-description {
+  color: #a57447; 
+  font-weight: 500; 
+  margin-bottom: 30px;
+}
+
+.hero-note {
+  font-size: 14px;
+  color: #736d6a;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+
+/* --- ABOUT ME SEKCIJA - KOMPLETAN CSS --- */
+
+#about {
+  background-color: #fdfaf6; /* Blaga krem boja za prijatnost */
+  padding: 100px 20px;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 30px;
+  align-items: center;
 }
 
-.why-card {
-  background: #fff;
-  padding: 30px 25px;
-  border-radius: 20px; /* Malo zaobljenije ivice za moderniji izgled */
-  width: 260px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.04); /* Nežnija početna senka */
-  transition: all 0.4s ease; /* Glavniji i mekši prelaz */
-  border: 1px solid rgba(212, 163, 115, 0.1); /* Jedva vidljiva zlatna ivica */
+.about-container {
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  
+  /* Efekti za lepši izgled */
+  background: #ffffff; /* Bela podloga za kontrast */
+  padding: 50px;
+  border-radius: 30px; /* Zaobljene ivice za moderniji stil */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); /* Suptilna, duboka senka */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Glatki efekat */
+}
+
+/* Efekat kada se pređe mišem preko sekcije */
+.about-container:hover {
+  transform: translateY(-5px); /* Blago podizanje sekcije */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Senka postaje malo jača */
+}
+
+#about h2 {
+  font-family: 'Playfair Display', serif; /* Elegantan font ako ga imaš */
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #2c2c2c;
+  letter-spacing: 1px;
+}
+
+.about-content {
+  text-align: left;
+  line-height: 1.9; /* Veći razmak za "vazdušast" izgled */
+  font-size: 1.1rem;
+  color: #555; /* Mekša siva boja umesto oštre crne */
+}
+
+.about-content p {
+  margin-bottom: 25px; /* Razmak između pasusa */
+}
+
+/* Dodatak: Dekorativna crta ispod naslova */
+#about h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: #d4c5a9; /* Boja koja se uklapa u Woolice tonove */
+  margin: 15px auto 0;
+}
+
+/* Osnovni izgled galerije */
+.gallery {
+  padding: 80px 5%;
+  background-color: #fcfbfa;
+}
+
+.gallery-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.gallery-description {
+  text-align: center;
+  margin-bottom: 50px;
+  color: #a57447;
+}
+
+
+
+.gallery-item {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Sve slike će biti savršeni kvadrati */
+  overflow: hidden;
+  border-radius: 15px;
+  background: #eee0d2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Slika će se automatski kropovati da popuni kvadrat */
+  transition: transform 0.4s ease;
+}
+
+/* Hover efekat */
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+
+/* Hover efekat */
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+
+/* Klase za različite visine (da galerija izgleda asimetrično) */
+.gallery-item.short { grid-row-end: span 25; }
+.gallery-item.medium { grid-row-end: span 35; }
+.gallery-item.long { grid-row-end: span 45; }
+
+/* =========================
+   OSTALE SEKCIJE (WHY, PRICE, ABOUT, FAQ)
+========================= */
+.why-content { 
+  display: flex; 
+  padding-bottom: 100px; 
+  justify-content: center; 
+  gap: 20px; 
+  flex-wrap: wrap; 
+  margin-top: 30px; 
+}
+
+.why-card { 
+  background: #fff; 
+  padding: 30px 25px; 
+  border-radius: 20px; 
+  width: 260px; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodato za glatki efekat */
 }
 
 .why-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 30px rgba(212, 163, 115, 0.15); /* Senka u boji tvog brenda */
+  transform: translateY(-10px); 
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+  cursor: pointer;
+}
+
+#price {
+  background: #fdfaf6;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 50px; /* Dodatni prostor na dnu sekcije */
+}
+
+.price-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex; /* Ovo pravi dve kolone */
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.product-listing {
+  flex: 1; /* Zauzima pola prostora */
+}
+
+.price-tag {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.order-form { 
+  flex: 1; /* Zauzima drugu polovinu */
+  margin: 0; /* Brišemo margin auto da ne bude centrirano već desno */
+  padding: 25px; 
+  background: white; 
+  border-radius: 16px; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 12px; 
+}
+
+.order-form h3 { margin-bottom: 10px; }
+
+.order-form input, .order-form textarea { 
+  padding: 14px; 
+  border: 1px solid #e3dec9; 
+  border-radius: 12px; 
+  width: 100%;
+  box-sizing: border-box; /* Da padding ne izlazi van okvira */
+}
+
+/* Dugme */
+.btn {
+  background: #a57447;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.faq-grid { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 20px; 
+  max-width: 1000px; 
+  margin: 40px auto 0; 
+}
+
+.faq p { 
+  background: white; 
+  padding: 25px; 
+  border-radius: 16px; 
+  text-align: left; 
+}
+
+.contact-box { 
+  display: inline-block; 
+  padding: 25px 35px; 
+  background: #fff; 
+  border-radius: 18px; 
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
 }
 
 /* =========================
-   GALLERY
+   RESPONSIVE
 ========================= */
+@media (max-width: 768px) {
+  .hero { flex-direction: column; text-align: center; }
+  .hero-text { text-align: center; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .faq-grid { flex-direction: column; }
+  .header { padding: 15px 20px; }
+}
+
+/* GALERIJA SA 3 KOLONE */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+  gap: 20px;
   max-width: 1000px;
   margin: 40px auto 0;
 }
 
-.gallery-grid img {
-  width: 100%;
-  height: 340px;
-  object-fit: cover;
-  border-radius: 16px;
-  transition: 0.3s;
-}
 
-.gallery-grid img:hover {
-  transform: scale(1.04);
-}
 
-/* =========================
-   PRICE
-========================= */
-.price {
-  background: #eee0d2;
-  padding: 80px 20px;
-}
-
-.price-content {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.text {
-  max-width: 520px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.details {
-  margin: 20px auto 0 auto; /* Dodato 'auto' sa leve i desne strane za centriranje kutije */
-  text-align: left;
-  font-size: 14px;
-  line-height: 2;
-  max-width: 320px;         /* Ograničavamo širinu kutije da bi 'auto' margine imale efekat */
-  width: 100%;              /* Osigurava responzivnost na manjim ekranima */
-}
-
-/* =========================
-   ORDER FORM
-========================= */
-.order-form {
-  max-width: 450px;
-  margin: 40px auto;
-  padding: 25px;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.order-form input,
-.order-form textarea {
-  padding: 14px;
-  border: 1px solid #e3dec9;
-  border-radius: 12px;
-  font-family: inherit;
-  font-size: 14px;
-  background: #fdfbf7;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-/* Kada korisnik klikne da piše unutra */
-.order-form input:focus,
-.order-form textarea:focus {
-  border-color: #d4a373;
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(212, 163, 115, 0.1); /* Blagi sjaj oko polja */
-}
-
-.order-form .btn {
-  background: #000;
-  color: white;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-/* =========================
-   CONTACT
-========================= */
-.contact-box {
-  display: inline-block;
-  padding: 25px 35px;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer {
-  padding: 30px;
-  text-align: center;
-  font-size: 14px;
-}
-
-/* =========================
-   MOBILE (FIXED PRO)
-========================= */
+/* RESPONSIVE: 1 kolona na mobilnom */
 @media (max-width: 768px) {
-
-  ,logo {
-    width: 75px;
-    height: 75px;
-    padding-bottom: 8px;
-  }
-  
-  
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 60px 20px;
-  }
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .hero-buttons {
-    justify-content: center;
-  }
-
-  .hero-image img {
-    width: 100%;
-    max-width: 320px;
-  }
-
   .gallery-grid {
     grid-template-columns: 1fr;
   }
-
-  .why-card {
-    width: 90%;
-  }
-
-  .nav {
-    gap: 10px;
-    font-size: 12px;
-  }
-
-  .header {
-    padding: 15px 20px;
-  }
-
-  section {
-    padding: 60px 20px;
-  }
-
-
-  /* =========================
-   ABOUT ME (IMPROVED)
-========================= */
-.about {
-  background: #fdfbf7; /* Blaga, malo svetlija krem pozadina da se odvoji od ostalih sekcija */
-  padding: 100px 20px;
 }
 
-.about-container {
-  max-width: 680px;    /* Ključna stvar: sužavamo tekst da bi bio lakši za čitanje */
-  margin: 0 auto;      /* Centrira celu sekciju na sredinu ekrana */
-  text-align: center;  /* Centrira naslov i uvodnu rečenicu */
+#how {
+  border-bottom: 1px solid #e3dec9;
 }
 
-.about h2 {
-  margin-bottom: 30px;
-  position: relative;
+.faq { 
+  padding: 80px 10%; 
+  background: #fdfaf6; 
+  margin-top: 50px; /* Ovo dodaje čist prostor između Price i FAQ */
+  display: block;   /* Osigurava da se FAQ ne gura pored Price */
+  clear: both;      /* Ovo 'preseca' sve prethodne elemente */
 }
 
-/* Prva uvodna rečenica - malo veća i istaknutija */
-.about-lead {
-  font-size: 20px;
-  font-weight: 500;
-  color: #d4a373;      /* Tvoja prepoznatljiva zlatno-braon boja */
-  margin-bottom: 25px;
-}
+.faq-container { max-width: 700px; margin: 0 auto; }
 
-/* Stil za ostale pasuse */
-.about p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #4a4a4a;      /* Malo mekša crna boja, prijatnija za oči */
-  margin-bottom: 20px; /* Razmak između pasusa */
-  text-align: justify; /* Poravnava tekst sa obe strane da izgleda uredno kao u knjizi */
-}
-/* =========================
-   FAQ SEKCIJA
-========================= */
-.faq {
-  background: #eee0d2; /* Ista lepa krem boja kao kod Price sekcije */
-  max-width: 800px;
-  margin: 60px auto;
-  padding: 50px 40px !important;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.03);
-}
-
-.faq h2 {
-  margin-bottom: 30px;
-}
-
-.faq p {
-  text-align: left;    /* Pitanja i odgovori lepše izgledaju poravnati levo */
-  background: white;   /* Svako pitanje dobija svoju belu "karticu" */
-  padding: 20px;
-  border-radius: 12px;
+.faq-item {
+  background: white;
   margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+  cursor: pointer;
+}
+
+.faq-item summary {
+  font-weight: bold;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.faq-item p {
+  margin-top: 15px;
+  color: #666;
   line-height: 1.6;
 }
 
-/* Stil za poslednji paragraf da ne pravi višak razmaka na dnu */
-.faq p:last-child {
-  margin-bottom: 0;
+#faq, #order {
+  display: block;
+  clear: both;
 }
+
+#faq {
+  margin-top: 80px;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  justify-items: center; /* Centrira kartice u gridu */
+}
+
+/* --- HOW IT WORKS SEKCIJA --- */
+.how {
+  background-color: #fcfcfc; /* Blaga, prijatna pozadina */
+  padding: 80px 20px;
+  text-align: center;
+  margin-bottom: 60px;      /* Ovo osigurava razmak od 'why' sekcije */
+}
+
+.how h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 40px;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+/* Dekorativna crtica ispod naslova */
+.how h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #d4a373; /* Topla boja koja ide uz 'handmade' koncept */
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;                /* Razmak između kartica */
+  max-width: 500px;         /* Ograničena širina za bolji izgled */
+  margin: 0 auto;           /* Centriranje celog bloka */
+}
+
+.steps div {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 15px;      /* Zaobljene ivice za mekši izgled */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Nežna senka */
+  font-size: 1.1rem;
+  color: #555;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+/* Hover efekat za interaktivnost */
+.steps div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-color: #d4a373;    /* Boja ivice se menja na hover */
+}
+
+/* --- Obezbeđivanje razmaka između sekcija --- */
+/* Ovo je ključno da Why ne ulazi u How */
+.how {
+  margin-bottom: 50px;      /* Dodaje prostor između 'how' i sledeće sekcije */
+}
+
+
+
+

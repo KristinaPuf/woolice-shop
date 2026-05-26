@@ -5,16 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Woolice Felts</title>
 
-  <!-- Fontovi -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="./style.css">
 
   <link rel="preload" as="image" href="images/logo.jpeg">
   <link rel="preload" as="image" href="images/heroslika.jpeg">
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNPGMHPXGN"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -26,20 +23,20 @@
 
 <body>
 
-  <!-- HEADER / LOGO -->
   <header class="header">
-    <div class="logo-wrapper">
-      <img src="./images/logo.jpeg" alt="Woolice Felts logo" class="logo">
-    </div>
+  <div class="logo-wrapper">
+    <img src="./images/logo.jpeg" alt="Woolice logo" class="logo">
+  </div>
 
-    <nav class="nav">
-      <a href="#how">How it works</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#price" class="nav-btn">Order</a>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#price" class="nav-btn">Order</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-text">
 
@@ -50,7 +47,7 @@
         dog sculptures
       </h1>
 
-      <p>
+      <p class="hero-description">
         Turn your dog into a timeless handmade sculpture, crafted from your photos with extreme attention to detail and love.
       </p>
 
@@ -70,7 +67,19 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+   <section id="about">
+  <div class="about-container">
+    <h2>About me</h2>
+    <div class="about-content">
+      <p>Hi, I’m Kristina, the artist behind Woolice Felts. 🐾</p>
+      <p>I started my journey with needle felting over 10 years ago, combining my love for animals and creativity into something truly meaningful. What began as a simple passion slowly grew into a way of preserving special memories through art.</p>
+      <p>Today, I create handmade needle-felted dog sculptures, each one carefully crafted to capture the unique personality of your pet. Every piece is made to order, based on your photos, with attention to even the smallest details.</p>
+      <p>I understand how important pets are they are family. That’s why I put so much care, patience, and love into every sculpture I make. No two pieces are ever the same, just like no two dogs are the same. Thank you for being here and trusting me with something so personal.</p>
+    </div>
+  </div>
+</section>
+
+
   <section class="how" id="how">
     <h2>How it works</h2>
     <div class="steps">
@@ -81,7 +90,6 @@
     </div>
   </section>
 
-  <!-- WHY CHOOSE -->
   <section class="why">
   <h2>Why choose Woolice Felts?</h2>
 
@@ -105,89 +113,79 @@
   </div>
 </section>
 
-  <!-- GALLERY -->
   <section class="gallery" id="gallery">
-  <h2>Gallery</h2>
-  <p>Every sculpture is unique and made to capture the spirit of each dog.</p>
+  <h2 class="gallery-title">Gallery</h2>
+  <p class="gallery-description">Every sculpture is unique and made to capture the spirit of each dog.</p>
 
   <div class="gallery-grid">
-      <img src="./images/galerija1.jpeg" loading="lazy">
-      <img src="./images/galerija2.jpeg" loading="lazy">
-      <img src="./images/galerija3.jpeg" loading="lazy">
-      <img src="./images/galerija4.jpeg" loading="lazy">
-      <img src="./images/galerija5.jpeg" loading="lazy">
-      <img src="./images/galerija6.jpeg" loading="lazy">
-      <img src="./images/galerija10.jpeg" loading="lazy">
-      <img src="./images/galerija8.jpeg" loading="lazy">
-      <img src="./images/galerija9.jpeg" loading="lazy">
+    <div class="gallery-item"><img src="./images/galerija1.jpeg"></div>
+    <div class="gallery-item"><img src="./images/galerija2.jpeg"></div>
+    <div class="gallery-item"><img src="./images/galerija3.jpeg"></div>
+    <div class="gallery-item"><img src="./images/galerija4.jpeg"></div>
+    <div class="gallery-item"><img src="./images/galerija5.jpeg"></div>
+    <div class="gallery-item"><img src="./images/galerija6.jpeg"></div>
+    <div class="gallery-item"><img src="./images/galerija10.jpeg"></div>
+    <div class="gallery-item"><img src="./images/galerija8.jpeg"></div>
+    <div class="gallery-item"><img src="./images/galerija9.jpeg"></div>
   </div>
-  </section>
+</section>
 
-  <!-- PRICE -->
   <section class="price" id="price">
-
-    <div class="price-content">
-
-      <div class="text">
-        <h2>Custom dog sculpture – $130</h2>
-        <p>Each sculpture is made to order from Your photos.</p>
-
-        <div class="details">
-          <strong>Details</strong><br><br>
-          Looking for a heartfelt, handmade way to remember Your beloved dog?<br><br>
-
-          You can send photos to:
-          <a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a><br><br>
-
-          Waiting time: 6–8 weeks<br>
-          Size: 3–4''<br>
-          Eyes: Round black glass<br>
-        </div>
+  <div class="price-container">
+    
+    <div class="product-listing">
+      <h2>Custom dog sculpture</h2>
+      <p class="price-tag">$130.00</p>
+      <p>Looking for a heartfelt, handmade way to remember Your beloved dog?</p>
+      
+      <div class="details-list">
+        <p><strong>Waiting time:</strong> 6–8 weeks</p>
+        <p><strong>Size:</strong> 3–4''</p>
+        <p><strong>Eyes:</strong> Round black glass</p>
       </div>
 
-      <form id="order-form" class="order-form">
-        <input type="text" id="name" placeholder="Your name" required>
-        <input type="email" id="email" placeholder="Your email" required>
-        <textarea id="details" placeholder="Tell me about your dog"></textarea>
-
-        <button type="submit" class="btn">Continue to PayPal</button>
-      </form>
-
+      <p>You can send photos to: <strong><a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a></strong></p>
     </div>
 
-  </section>
+    <form id="order-form" class="order-form">
+      <h3>Place your order</h3>
+      <input type="text" id="name" placeholder="Your name" required>
+      <input type="email" id="email" placeholder="Your email" required>
+      <textarea id="details" placeholder="Tell me about your dog"></textarea>
+      <button type="submit" class="btn">Continue to PayPal</button>
+    </form>
+    
+  </div>
+</section>
 
-  <!-- ABOUT -->
-  <section class="about">
-    <div class="about-container">
-      <h2>About me</h2>
-      <p class="about-lead">Hi, I’m Kristina, the artist behind Woolice Felts. 🤍</p>
-      
-      <p>
-        I started my journey with needle felting over 10 years ago, combining my love for animals and creativity into something truly meaningful. What began as a simple passion slowly grew into a way of preserving special memories through art.
-      </p>
-      
-      <p>
-        Today, I create handmade needle-felted dog sculptures, each one carefully crafted to capture the unique personality of your pet. Every piece is made to order, based on your photos, with attention to even the smallest details.
-      </p>
-      
-      <p>
-        I understand how important pets are — they are family. That’s why I put so much care, patience, and love into every sculpture I make. No two pieces are ever the same, just like no two dogs are the same. Thank you for being here and trusting me with something so personal.
-      </p>
-    </div>
-  </section>
+ 
+  <section class="faq" id="faq">
+  <h2 class="section-title">FAQ</h2>
+  
+  <div class="faq-container">
+    <details class="faq-item">
+      <summary>How long does it take?</summary>
+      <p>Each sculpture takes approximately 6–8 weeks to complete.</p>
+    </details>
+    
+    <details class="faq-item">
+      <summary>What kind of photos should I send?</summary>
+      <p>Clear photos from different angles help a lot.</p>
+    </details>
+    
+    <details class="faq-item">
+      <summary>Do you ship worldwide?</summary>
+      <p>Yes, I ship worldwide!</p>
+    </details>
+    
+    <details class="faq-item">
+      <summary>Can I request changes?</summary>
+      <p>Yes, small adjustments are possible.</p>
+    </details>
+  </div>
+</section>
+    
 
-  <!-- FAQ -->
-  <section class="faq">
-    <h2>FAQ</h2>
-
-    <p><strong>How long does it take?</strong><br>Each sculpture takes approximately 6–8 weeks to complete.</p>
-    <p><strong>What kind of photos should I send?</strong><br>Clear photos from different angles help a lot.</p>
-    <p><strong>Do you ship worldwide?</strong><br>Yes.</p>
-    <p><strong>Can I request changes?</strong><br>Yes, small adjustments are possible.</p>
-  </section>
-
-  <!-- CONTACT -->
   <section class="contact">
     <h2>Contact</h2>
 
@@ -197,7 +195,6 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <p>© Woolice Felts</p>
   </footer>
@@ -226,4 +223,5 @@
   </script>
 
 </body>
+</html>
 </html>
