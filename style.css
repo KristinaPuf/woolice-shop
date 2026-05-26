@@ -557,7 +557,7 @@ section h2::after {
 .steps div:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  border-color: #d4a373;    /* Boja ivice se menja na hover */
+  border-color: #c89b6e;    /* Boja ivice se menja na hover */
 }
 
 /* --- Obezbeđivanje razmaka između sekcija --- */
