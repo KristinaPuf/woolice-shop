@@ -83,13 +83,13 @@ section h2::after {
 }
 
 /* 3. Linkovi - centrirano i uredno */
+
+/* Razmak između dugmića */
 .nav-links {
-  display: flex;
-  list-style: none;
-  gap: 40px; /* Veći razmak deluje otmenije */
-  align-items: center;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    list-style: none;
+    gap: 15px; /* Razmak između dugmića */
+    align-items: center;
 }
 
 .nav-links a {
@@ -108,20 +108,19 @@ section h2::after {
 
 /* 4. Dugme - "Call to Action" */
 .nav-btn {
-  background-color: #a89685;
-  color: white !important;
-  padding: 10px 25px;
-  border-radius: 50px;
-  border: 1px solid transparent;
-  transition: all 0.3s ease;
+    text-decoration: none;
+    color: #4a4a4a; /* Boja teksta */
+    background: #e6e0dc; /* Boja pozadine koju već imaš na Shop/Order */
+    padding: 10px 20px;
+    border-radius: 25px; /* Ovo pravi onaj zaobljeni izgled */
+    transition: background 0.3s ease;
+    font-weight: 500;
 }
 
 .nav-btn:hover {
-  background-color: transparent;
-  color: #a89685 !important;
-  border-color: #a89685;
-  box-shadow: 0 5px 15px rgba(168, 150, 133, 0.2);
+    background: #d4cfcc; /* Malo tamnija boja kad se pređe mišem */
 }
+
 
 /* =========================
    HERO - KOMPLETNO SREĐENO
@@ -345,51 +344,34 @@ section h2::after {
   cursor: pointer;
 }
 
-#price {
-  background: #fdfaf6;
-  overflow: hidden;
-  position: relative;
-  z-index: 10;
-  padding-bottom: 50px; /* Dodatni prostor na dnu sekcije */
+/* Stil za polja u formi */
+.order-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
-.price-container {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex; /* Ovo pravi dve kolone */
-  gap: 40px;
-  align-items: flex-start;
+.order-fields input, .order-fields textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box; /* Ključno da širina bude 100% bez prelivanja */
 }
 
-.product-listing {
-  flex: 1; /* Zauzima pola prostora */
+/* Stil za okvir forme da se istakne */
+.order-box {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #eee;
 }
 
-.price-tag {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 15px 0;
-}
-
-.order-form { 
-  flex: 1; /* Zauzima drugu polovinu */
-  margin: 0; /* Brišemo margin auto da ne bude centrirano već desno */
-  padding: 25px; 
-  background: white; 
-  border-radius: 16px; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 12px; 
-}
-
-.order-form h3 { margin-bottom: 10px; }
-
-.order-form input, .order-form textarea { 
-  padding: 14px; 
-  border: 1px solid #e3dec9; 
-  border-radius: 12px; 
-  width: 100%;
-  box-sizing: border-box; /* Da padding ne izlazi van okvira */
+.order-box h3 {
+    margin-top: 0;
+    color: #a57447;
 }
 
 /* Dugme */
@@ -624,4 +606,67 @@ section h2::after {
 }
 
 
+.product-section { padding: 60px 20px; background: #f9f7f5; }
 
+.product-container {
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+    gap: 60px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* Galerija */
+.product-gallery { flex: 1; }
+.main-image img { width: 100%; border-radius: 10px; height: 400px; object-fit: cover; }
+.thumbnail-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px; }
+.thumbnail-grid img { width: 100%; height: 80px; object-fit: cover; cursor: pointer; border-radius: 5px; }
+
+/* Tekst i info */
+.product-info { flex: 1; }
+.product-info h1 { font-size: 2.5rem; margin-bottom: 10px; color: #333; }
+.price { font-size: 1.5rem; color: #a57447; font-weight: bold; margin-bottom: 20px; }
+.specs { margin-bottom: 20px; color: #666; font-size: 0.9rem; }
+.description { color: #555; line-height: 1.8; margin-bottom: 30px; }
+
+/* Dugme */
+.buy-btn {
+    display: block;
+    text-align: center;
+    background: #333;
+    color: white;
+    padding: 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.buy-btn:hover { background: #a57447; }
+
+/* Mobilni */
+@media (max-width: 768px) {
+    .product-container { flex-direction: column; }
+}
+
+/* Prilagođavanje za mobilne telefone */
+@media screen and (max-width: 600px) {
+  .nav-links {
+    flex-wrap: wrap; /* Dozvoljava prelamanje u novi red */
+    justify-content: center; /* Centriraj linkove */
+    gap: 10px; /* Mali razmak */
+    padding: 0; /* Bez paddinga sa strana */
+  }
+
+  .nav-links li {
+    width: 45%; /* Dva linka po redu */
+    text-align: center; /* Centriraj tekst u linku */
+  }
+
+  .nav-btn {
+    width: 100%; /* Da dugme popuni prostor */
+    box-sizing: border-box; /* Da padding ne gura dugme */
+  }
+}

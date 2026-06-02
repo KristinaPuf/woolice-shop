@@ -7,10 +7,10 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="./style.css">
+ <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-  <link rel="preload" as="image" href="images/logo.jpeg">
-  <link rel="preload" as="image" href="images/heroslika.jpeg">
+<link rel="preload" as="image" href="{{ url_for('static', filename='images/logo.jpeg') }}">
+<link rel="preload" as="image" href="{{ url_for('static', filename='images/heroslika.jpeg') }}">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MNPGMHPXGN"></script>
   <script>
@@ -19,19 +19,26 @@
     gtag('js', new Date());
     gtag('config', 'G-MNPGMHPXGN');
   </script>
+
+
+
+  <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAySwA2fitLTCPW8A3wKnCj06CGw2fAjcOK02IH-BNUjAyzoRZLDKgb-CpBVwVqHiXTY1SyFKMnsk1xts&components=hosted-buttons&disable-funding=venmo&currency=USD">
+  </script>
 </head>
 
 <body>
 
-  <header class="header">
+ <header class="header">
   <div class="logo-wrapper">
-    <img src="./images/logo.jpeg" alt="Woolice logo" class="logo">
+    <a href="/"><img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Woolice logo" class="logo"></a>
   </div>
 
   <nav class="navbar">
     <ul class="nav-links">
-      <li><a href="#how">How it works</a></li>
-      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#how" class="nav-btn">How it works</a></li>
+      <li><a href="#gallery" class="nav-btn">Gallery</a></li>
+      <li><a href="#shop" class="nav-btn">Shop</a></li>
       <li><a href="#price" class="nav-btn">Order</a></li>
     </ul>
   </nav>
@@ -62,10 +69,10 @@
 
     </div>
 
-    <div class="hero-image">
-      <img src="./images/crnistiker-removebg-preview.png" class="hero-sticker" alt="Woolice hero image">
-    </div>
-  </section>
+   <div class="hero-image">
+  <img src="{{ url_for('static', filename='images/crnistiker-removebg-preview.png') }}" class="hero-sticker" alt="Woolice hero image">
+</div>
+</section>
 
    <section id="about">
   <div class="about-container">
@@ -118,46 +125,87 @@
   <p class="gallery-description">Every sculpture is unique and made to capture the spirit of each dog.</p>
 
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="./images/galerija1.jpeg"></div>
-    <div class="gallery-item"><img src="./images/galerija2.jpeg"></div>
-    <div class="gallery-item"><img src="./images/galerija3.jpeg"></div>
-    <div class="gallery-item"><img src="./images/galerija4.jpeg"></div>
-    <div class="gallery-item"><img src="./images/galerija5.jpeg"></div>
-    <div class="gallery-item"><img src="./images/galerija6.jpeg"></div>
-    <div class="gallery-item"><img src="./images/galerija10.jpeg"></div>
-    <div class="gallery-item"><img src="./images/galerija8.jpeg"></div>
-    <div class="gallery-item"><img src="./images/galerija9.jpeg"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija1.jpeg') }}"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija2.jpeg') }}"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija3.jpeg') }}"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija4.jpeg') }}"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija5.jpeg') }}"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija6.jpeg') }}"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija10.jpeg') }}"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija8.jpeg') }}"></div>
+    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija9.jpeg') }}"></div>
   </div>
+</section>
+
+
+
+   <section id="shop" class="product-section">
+    <div class="product-container">
+        <div class="product-gallery">
+            <div class="main-image">
+                <img src="{{ url_for('static', filename='images/pom1.jpg') }}" id="expandedImg">
+            </div>
+            <div class="thumbnail-grid">
+                <img src="{{ url_for('static', filename='images/pom1.jpg') }}" onclick="document.getElementById('expandedImg').src=this.src">
+                <img src="{{ url_for('static', filename='images/pom2.jpg') }}" onclick="document.getElementById('expandedImg').src=this.src">
+                <img src="{{ url_for('static', filename='images/pom3.jpg') }}" onclick="document.getElementById('expandedImg').src=this.src">
+                <img src="{{ url_for('static', filename='images/pom4.jpg') }}" onclick="document.getElementById('expandedImg').src=this.src">
+            </div>
+        </div>
+
+        <div class="product-info">
+    <h1>Needle Felted Pomeranian</h1>
+    <p class="price">$80.00 USD</p>
+    <div class="specs">
+        <p><strong>Size:</strong> Approx. 3.5 inches (9 cm)</p>
+        <p><strong>Material:</strong> 100% wool</p>
+        <p><strong>Ready to ship:</strong> 1-2 business days</p>
+    </div>
+    <p class="description">This adorable 3.5-inch Pomeranian sculpture is handmade from 100% wool...</p>
+    
+    <div id="paypal-container-P2FGLP4694Q4A"></div>
+    <script>
+      paypal.HostedButtons({
+        hostedButtonId: "P2FGLP4694Q4A",
+      }).render("#paypal-container-P2FGLP4694Q4A")
+    </script>
+</div>
 </section>
 
   <section class="price" id="price">
-  <div class="price-container">
+  <div class="product-container">
     
-    <div class="product-listing">
-      <h2>Custom dog sculpture</h2>
-      <p class="price-tag">$130.00</p>
-      <p>Looking for a heartfelt, handmade way to remember Your beloved dog?</p>
+    <div class="product-info">
+      <h1>Custom dog sculpture</h1>
+      <p class="price">$130.00</p>
+      <p class="description">Looking for a heartfelt, handmade way to remember your beloved dog?</p>
       
-      <div class="details-list">
+      <div class="specs">
         <p><strong>Waiting time:</strong> 6–8 weeks</p>
-        <p><strong>Size:</strong> 3–4''</p>
+        <p><strong>Size:</strong> 3–4"</p>
         <p><strong>Eyes:</strong> Round black glass</p>
+        <p>You can send photos to: <br><strong><a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a></strong></p>
       </div>
-
-      <p>You can send photos to: <strong><a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a></strong></p>
     </div>
 
-    <form id="order-form" class="order-form">
+    <div class="product-info order-box">
       <h3>Place your order</h3>
-      <input type="text" id="name" placeholder="Your name" required>
-      <input type="email" id="email" placeholder="Your email" required>
-      <textarea id="details" placeholder="Tell me about your dog"></textarea>
-      <button type="submit" class="btn">Continue to PayPal</button>
-    </form>
+      <form id="order-form" class="order-fields">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <textarea placeholder="Tell me about your dog"></textarea>
+      </form>
+
+      <div id="paypal-container-CUSTOM"></div>
+      <script>
+        paypal.HostedButtons({
+          hostedButtonId: "H24CVD3H5JH94",
+        }).render("#paypal-container-CUSTOM")
+      </script>
+    </div>
     
   </div>
 </section>
-
  
   <section class="faq" id="faq">
   <h2 class="section-title">FAQ</h2>

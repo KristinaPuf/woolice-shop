@@ -1,5 +1,5 @@
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template  # <-- Dodaj render_template
 from flask_cors import CORS
 import json
 import os
@@ -10,6 +10,10 @@ load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 ORDERS_FILE = "orders.json"
 
