@@ -2,20 +2,74 @@
    OSNOVNA PODEŠAVANJA
 ========================= */
 * { 
-  margin: 0; 
-  padding: 0; 
-  box-sizing: border-box; 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 
 html { 
   scroll-behavior: smooth; 
   scroll-padding-top: 100px;
 }
 
-body { 
-  font-family: sans-serif; 
-  line-height: 1.6;  
-  color: #333; 
+/* 1. Zaglavlje (nav) - Fiksiranje i boja */
+nav {
+  position: fixed;      /* Zaglavlje je uvek prilepljeno za vrh */
+  top: 0;               /* Tačno na vrhu ekrana */
+  left: 0;              /* Od leve ivice */
+  width: 100%;          /* Puna širina ekrana */
+  background-color: #e0e0e0; /* BOJA KOJU SI TRAŽILA (svetlo siva) */
+  padding: 15px 50px;   /* Unutrašnji razmak (gore/dole, levo/desno) */
+  display: flex;        
+  justify-content: space-between; /* Logo levo, linkovi desno */
+  align-items: center;  
+  z-index: 1000;        /* Važno: Zaglavlje je uvek iznad ostalog sadržaja */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Suptilna senka radi profesionalnosti */
+}
+
+/* 2. Telo (body) - Kompenzacija za fiksirano zaglavlje */
+/* POZOR: Ovo je ključno! Kako se zaglavlje odvaja od toka stranice, 
+   moramo da gurnemo ostatak sadržaja nadole kako se ne bi sakrio iza menija. */
+body {
+  margin: 0;
+  /* Povećaj ovo ako je navigacija i dalje nisko, 
+     ili smanji ako je preveliki razmak */
+  padding-top: 150px; 
+}
+
+/* Kontejner za sve linkove */
+.nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Osnovni stil za sve dugmiće */
+.nav-btn {
+  padding: 10px 20px;
+  border-radius: 50px; /* Ovo ih čini zaobljenim */
+  text-decoration: none;
+  color: #2c2520;
+  background-color: transparent; /* Da ne budu odmah obojeni */
+  border: 1px solid #dcdcdc; /* Blagi okvir da se vide */
+  transition: all 0.3s ease;
+}
+
+/* Stil samo za Order Now */
+.nav-btn.order-now {
+  background-color: #e0cec5; /* Boja sa tvoje slike */
+  color: white;
+  border: none;
+}
+
+/* Efekat kada pređeš mišem */
+.nav-btn:hover {
+  background-color: #e0dcd9;
+}
+
+.nav-btn.order-now:hover {
+  background-color: #bd9578;
 }
 
 a {
@@ -56,16 +110,17 @@ section h2::after {
    HEADER & LOGO
 ========================= */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #faeae6;
+  padding: 15px 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 8%;
-  position: sticky;
-  top: 0;
-  background: rgba(246, 239, 231, 0.95); /* Elegantna, blago krem boja */
-  backdrop-filter: blur(10px);
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Suptilna senka daje dubinu */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* 2. Logo - diskretan i elegantan */
@@ -84,42 +139,7 @@ section h2::after {
 
 /* 3. Linkovi - centrirano i uredno */
 
-/* Razmak između dugmića */
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 15px; /* Razmak između dugmića */
-    align-items: center;
-}
 
-.nav-links a {
-  text-decoration: none;
-  color: #5d534a; /* Tamnija braon boja umesto obične crne */
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #a89685;
-}
-
-/* 4. Dugme - "Call to Action" */
-.nav-btn {
-    text-decoration: none;
-    color: #4a4a4a; /* Boja teksta */
-    background: #e6e0dc; /* Boja pozadine koju već imaš na Shop/Order */
-    padding: 10px 20px;
-    border-radius: 25px; /* Ovo pravi onaj zaobljeni izgled */
-    transition: background 0.3s ease;
-    font-weight: 500;
-}
-
-.nav-btn:hover {
-    background: #d4cfcc; /* Malo tamnija boja kad se pređe mišem */
-}
 
 
 /* =========================
@@ -205,118 +225,132 @@ section h2::after {
 }
 
 
-/* --- ABOUT ME SEKCIJA - KOMPLETAN CSS --- */
-
+/* About sekcija gde je tekst PREKO slike */
 #about {
-  background-color: #fdfaf6; /* Blaga krem boja za prijatnost */
-  padding: 100px 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 60px 5% !important;
+  background: #faf8f5;
 }
 
+/* Zadržan stari oblik kartice sa slike 1000119476.heic */
 .about-container {
-  max-width: 750px;
-  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
+  background: #ffffff; /* Vraćena čista bela osnova */
+  border-radius: 24px; /* Identični mekani ćoškovi */
+  padding: 50px 40px;
   text-align: center;
-  
-  /* Efekti za lepši izgled */
-  background: #ffffff; /* Bela podloga za kontrast */
-  padding: 50px;
-  border-radius: 30px; /* Zaobljene ivice za moderniji stil */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); /* Suptilna, duboka senka */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Glatki efekat */
+  box-shadow: 0 10px 30px rgba(74, 64, 56, 0.03);
+  position: relative; /* Omogućava slici da se pozicionira iza */
+  overflow: hidden;
 }
 
-/* Efekat kada se pređe mišem preko sekcije */
-.about-container:hover {
-  transform: translateY(-5px); /* Blago podizanje sekcije */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Senka postaje malo jača */
+/* Nova klasa za svetlu sliku u pozadini */
+.about-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35; /* KLJUČNO: Slika je prozirna 85%, pa izgleda svetlo i ne smeta tekstu */
+  pointer-events: none; /* Tekst može normalno da se selektuje preko nje */
+  z-index: 1;
 }
 
-#about h2 {
-  font-family: 'Playfair Display', serif; /* Elegantan font ako ga imaš */
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #2c2c2c;
-  letter-spacing: 1px;
-}
-
+/* Tekst ostaje u prvom planu sa originalnim bojama */
 .about-content {
-  text-align: left;
-  line-height: 1.9; /* Veći razmak za "vazdušast" izgled */
-  font-size: 1.1rem;
-  color: #555; /* Mekša siva boja umesto oštre crne */
+  position: relative;
+  z-index: 2; /* Gura tekst ispred slike */
+}
+
+.about-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #2c2520; /* Vraćena stara tamna boja naslova */
+  margin-bottom: 25px;
 }
 
 .about-content p {
-  margin-bottom: 25px; /* Razmak između pasusa */
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #857263; /* Vraćena stara tamna boja teksta */
+  margin-bottom: 15px;
 }
 
-/* Dodatak: Dekorativna crta ispod naslova */
-#about h2::after {
-  content: "";
-  display: block;
-  width: 50px;
-  height: 2px;
-  background: #d4c5a9; /* Boja koja se uklapa u Woolice tonove */
-  margin: 15px auto 0;
+.about-content p:last-child {
+  margin-bottom: 0;
 }
+
+/* Prilagođavanje za mobilne telefone */
+@media (max-width: 576px) {
+  .about-overlay-content {
+    padding: 35px 20px;
+  }
+  .about-overlay-content h2 {
+    font-size: 1.8rem;
+  }
+}
+
 
 /* Osnovni izgled galerije */
-.gallery {
-  padding: 80px 5%;
-  background-color: #fcfbfa;
+.gallery-card {
+  width: 400px;
+  background: #ffffff;
+  margin: 50px auto;
+  border-radius: 30px; /* Veća zaobljenost za moderan izgled */
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* Mekana, duboka senka */
+  border: 1px solid rgba(0, 0, 0, 0.05); /* Suptilna ivica */
 }
 
-.gallery-title {
-  text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+.gallery-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
 }
 
-.gallery-description {
-  text-align: center;
-  margin-bottom: 50px;
-  color: #a57447;
-}
-
-
-
-.gallery-item {
+.image-frame {
   width: 100%;
-  aspect-ratio: 1 / 1; /* Sve slike će biti savršeni kvadrati */
+  height: 280px;
   overflow: hidden;
-  border-radius: 15px;
-  background: #eee0d2;
+  border-radius: 20px;
+  background-color: #E6E0DD; /* Tvoja boja zaglavlja */
 }
 
-.gallery-item img {
+.image-frame img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Slika će se automatski kropovati da popuni kvadrat */
-  transition: transform 0.4s ease;
+  object-fit: contain; /* Slika se ne seče */
+  transition: transform 0.6s ease;
 }
 
-/* Hover efekat */
-.gallery-item:hover img {
-  transform: scale(1.1);
+.gallery-card:hover .image-frame img {
+  transform: scale(1.05); /* Suptilan zoom na hover */
 }
 
-
-/* Hover efekat */
-.gallery-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+.card-content {
+  padding: 25px 10px 10px 10px;
+  text-align: center;
 }
 
+.card-content h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #2c2520;
+  margin: 0;
+  letter-spacing: 1px;
+}
 
-/* Klase za različite visine (da galerija izgleda asimetrično) */
-.gallery-item.short { grid-row-end: span 25; }
-.gallery-item.medium { grid-row-end: span 35; }
-.gallery-item.long { grid-row-end: span 45; }
-
+.card-content p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  color: #8c7b70;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
 /* =========================
    OSTALE SEKCIJE (WHY, PRICE, ABOUT, FAQ)
 ========================= */
@@ -400,12 +434,123 @@ section h2::after {
   text-align: left; 
 }
 
-.contact-box { 
-  display: inline-block; 
-  padding: 25px 35px; 
-  background: #fff; 
-  border-radius: 18px; 
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+/* Profesionalni kontakt blok */
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Ovo ih deli tačno na pola */
+  gap: 60px;
+  max-width: 1000px; /* Širina cele sekcije */
+  margin: 60px auto;
+  padding: 40px;
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.contact-right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Polja za unos */
+.contact-right input, 
+.contact-right textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-sizing: border-box; /* Ovo sprečava da polja "izlete" iz okvira */
+}
+
+.contact-right button {
+  padding: 15px;
+  background: #3e3d3d;
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.contact-wrapper { padding: 40px; background: #faeae6; } /* Siva pozadina oko kartice */
+
+.contact-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+.contact-left h2 { font-size: 2.5rem; margin-bottom: 30px; }
+.contact-left p { margin-bottom: 20px; color: #555; }
+
+/* Ikonice (krugovi kao na slici) */
+.social-icons { display: flex; gap: 10px; margin-top: 20px; }
+.icon-circle {
+  width: 40px; height: 40px;
+  background: black; color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; font-size: 0.8rem;
+}
+
+/* Forma desno */
+.contact-right { display: flex; flex-direction: column; gap: 15px; }
+.contact-right input, .contact-right textarea {
+  padding: 15px; border: 1px solid #ccc; border-radius: 8px;
+}
+.contact-right textarea { height: 120px; }
+.contact-right button {
+  background: rgb(105, 85, 85); color: white; padding: 15px;
+  border-radius: 8px; border: none; cursor: pointer;
+}
+
+/* Stil za naslov */
+.contact-left h2 {
+  font-family: 'Playfair Display', serif; /* Elegantan, profesionalan font */
+  font-size: 2.5rem;
+  color: #62544b;
+  margin-bottom: 30px;
+}
+
+/* Stil za labele (Email/Instagram) */
+.label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #8c7b70;
+  margin: 0;
+}
+
+/* Stil za linkove koji se klikću */
+.link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: #8b7769;
+  text-decoration: none;
+  border-bottom: 1px solid transparent; /* Nevidljiva crta ispod */
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  color: #a38d87; /* Boja tvog brenda pri prelasku mišem */
+  border-bottom: 1px solid #a38d87; /* Crta se pojavljuje pri prelasku */
+}
+
+.contact-item {
+  margin-bottom: 20px;
+}
+
+/* Prilagođavanje za telefon (da ne bude ružno kad je ekran mali) */
+@media (max-width: 768px) {
+  .contact-container {
+    grid-template-columns: 1fr; /* Jedna ispod druge na telefonu */
+  }
 }
 
 /* =========================
@@ -587,10 +732,7 @@ section h2::after {
     gap: 10px;
   }
 
-  /* 2. Sređivanje Price sekcije (dve kolone u jednu) */
-  .price-container {
-    flex-direction: column;
-  }
+  
 
   /* 3. Sređivanje navigacije (da se ne razvlači) */
   .nav-links {
@@ -606,18 +748,7 @@ section h2::after {
 }
 
 
-.product-section { padding: 60px 20px; background: #f9f7f5; }
 
-.product-container {
-    display: flex;
-    max-width: 1000px;
-    margin: auto;
-    gap: 60px;
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-}
 
 /* Galerija */
 .product-gallery { flex: 1; }
@@ -670,3 +801,208 @@ section h2::after {
     box-sizing: border-box; /* Da padding ne gura dugme */
   }
 }
+
+
+/* =========================
+   PROČIŠĆENA I SMANJENA ORDER SEKCIJA
+========================= */
+.order-section {
+  background: #faf8f5; 
+  padding: 60px 5% !important;
+}
+
+.section-subtitle {
+  font-family: 'Poppins', sans-serif;
+  color: #8c7b70;
+  font-size: 0.9rem;
+  margin-top: -30px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.products-grid {
+  display: flex;
+  max-width: 720px; /* Dodatno smanjeno da oglasi budu još diskretniji i manji */
+  margin: 0 auto;
+  gap: 20px; 
+  justify-content: center;
+  align-items: stretch;
+}
+
+.product-card {
+  background: #ffffff;
+  flex: 1;
+  max-width: 330px; /* Smanjena širina same kartice na vrlo kompaktnu meru */
+  border: 1px solid #eae5df; 
+  border-radius: 16px;
+  padding: 16px; /* Manji unutrašnji razmak */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Savršen vertikalni ram bez unutrašnjih oštrih ivica */
+.card-main-image {
+  width: 100%;
+  aspect-ratio: 3 / 4; 
+  overflow: hidden; /* KLJUČNO: Ovo seče sve što izlazi van zaobljenih ćoškova */
+  border-radius: 12px; 
+}
+
+.card-main-image a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sama slika sada savršeno puni prostor i prati krivinu okvira */
+.card-main-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Slika sada ide od ivice do ivice i poprima zaobljeni oblik okvira */
+  object-position: center center; /* Drži fokus na sredini fotografije */
+  padding: 0; /* Uklonjen padding koji je pravio kockasti efekat */
+}
+
+/* Male sličice ispod takođe prate čist stil bez ivica */
+.card-thumbnails img {
+  display: block;
+  width: 100%;
+  height: 42px; /* Smanjene sličice da prate manju karticu */
+  object-fit: cover;
+  border-radius: 6px; 
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(74, 64, 56, 0.04);
+}
+
+/* Unutrašnja galerija na karticama */
+.card-gallery {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Vertikalni ram za glavnu sliku (odnos 3:4) */
+
+
+/* Male sličice ispod */
+.card-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.card-thumbnails a {
+  display: block;
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+
+
+.card-thumbnails img:hover {
+  opacity: 0.7;
+}
+
+/* Informacije unutar kartice */
+.card-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-badge {
+  align-self: flex-start;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: #eadecf;
+  color: #5d5146;
+  padding: 2px 8px;
+  border-radius: 50px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.card-badge.gold {
+  background: #ebdcd0;
+  color: #a06e46;
+}
+
+.card-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; /* Smanjen font naslova */
+  color: #2c2520;
+  margin-bottom: 4px;
+}
+
+.card-price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.15rem; /* Smanjen font cijene */
+  color: #a57447;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card-specs {
+  border-top: 1px dashed #eae5df;
+  border-bottom: 1px dashed #eae5df;
+  padding: 10px 0;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem; /* Smanjen tekst specifikacija */
+  color: #6e645e;
+}
+
+.card-specs p {
+  margin-bottom: 3px;
+}
+
+.card-specs p:last-child {
+  margin-bottom: 0;
+}
+
+.card-specs span {
+  font-weight: 500;
+  color: #2c2520;
+}
+
+.card-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem; /* Kompaktniji opis */
+  line-height: 1.45;
+  color: #7a7069;
+  margin-bottom: 15px;
+}
+
+.paypal-wrapper {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* RESPONSIVE - Prilagođavanje za telefone */
+@media (max-width: 768px) {
+  .products-grid {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+  }
+  .product-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+
+

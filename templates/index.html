@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+ <head>
+  
 
 <link rel="preload" as="image" href="{{ url_for('static', filename='images/logo.jpeg') }}">
 <link rel="preload" as="image" href="{{ url_for('static', filename='images/heroslika.jpeg') }}">
@@ -29,20 +32,19 @@
 
 <body>
 
- <header class="header">
+ <nav class="header">
   <div class="logo-wrapper">
     <a href="/"><img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Woolice logo" class="logo"></a>
   </div>
 
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="#how" class="nav-btn">How it works</a></li>
-      <li><a href="#gallery" class="nav-btn">Gallery</a></li>
-      <li><a href="#shop" class="nav-btn">Shop</a></li>
-      <li><a href="#price" class="nav-btn">Order</a></li>
-    </ul>
-  </nav>
-</header>
+  <div class="nav-links">
+    <a href="#about" class="nav-btn">About</a>
+    <a href="#how" class="nav-btn">How it works</a>
+    <a href="#gallery" class="nav-btn">Gallery</a>
+    <a href="#faq" class="nav-btn">FAQ</a>
+    <a href="#price" class="nav-btn order-now">Order Now</a>
+  </div>
+</nav>
 
   <section class="hero">
     <div class="hero-text">
@@ -74,20 +76,62 @@
 </div>
 </section>
 
-   <section id="about">
-  <div class="about-container">
-    <h2>About me</h2>
-    <div class="about-content">
-      <p>Hi, I’m Kristina, the artist behind Woolice Felts. 🐾</p>
-      <p>I started my journey with needle felting over 10 years ago, combining my love for animals and creativity into something truly meaningful. What began as a simple passion slowly grew into a way of preserving special memories through art.</p>
-      <p>Today, I create handmade needle felted dog sculptures, each one carefully crafted to capture the unique personality of your pet. Every piece is made to order, based on your photos, with attention to even the smallest details.</p>
-      <p>I understand how important pets are they are family. That’s why I put so much care, patience, and love into every sculpture I make. No two pieces are ever the same, just like no two dogs are the same. Thank you for being here and trusting me with something so personal.</p>
-    </div>
+
+
+
+<section class="gallery" id="gallery">
+  <h2>Gallery</h2>
+  
+  
+  <div class="gallery-card" onclick="openGallery()">
+  <div class="image-frame">
+    <img src="{{ url_for('static', filename='images/cover1.jpeg') }}" alt="Gallery Preview">
+  </div>
+  <div class="card-content">
+    <h3>Gallery</h3>
+    <p>View the collection</p>
+  </div>
+</div>
+
+  <div id="hidden-gallery" style="display:none;">
+    <a href="{{ url_for('static', filename='images/galerija1.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija1.jpeg') }}"></a>
+    <a href="{{ url_for('static', filename='images/galerija2.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija2.jpeg') }}"></a>
+    <a href="{{ url_for('static', filename='images/galerija3.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija3.jpeg') }}"></a>
+    <a href="{{ url_for('static', filename='images/galerija4.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija4.jpeg') }}"></a>
+    <a href="{{ url_for('static', filename='images/galerija5.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija5.jpeg') }}"></a>
+    <a href="{{ url_for('static', filename='images/galerija6.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija6.jpeg') }}"></a>
+    <a href="{{ url_for('static', filename='images/galerija7.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija7.jpeg') }}"></a>
+    <a href="{{ url_for('static', filename='images/galerija8.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija8.jpeg') }}"></a>
+    <a href="{{ url_for('static', filename='images/galerija9.jpeg') }}" data-fancybox="main-gallery"><img src="{{ url_for('static', filename='images/galerija9.jpeg') }}"></a>
+  
   </div>
 </section>
 
 
-  <section class="how" id="how">
+<!-- 1. PRVO UČITAJ FANCYBOX BIBLIOTEKU -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<!-- U HEAD tagu moraš imati i CSS: <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" /> -->
+
+<!-- 2. ONDA DEFINIŠI FUNKCIJU SA ISPRAVNIM ZAREZIMA -->
+<script>
+  function openGallery() {
+    // KLJUČNO: Svaki red u nizu MORA da se završi zarezom (,) osim poslednjeg!
+    // Ispravio sam redove 6, 7 i 8 tako da imaju zarez na kraju.
+    Fancybox.show([
+      { src: "{{ url_for('static', filename='images/galerija1.jpeg') }}", type: "image" },
+      { src: "{{ url_for('static', filename='images/galerija2.jpeg') }}", type: "image" },
+      { src: "{{ url_for('static', filename='images/galerija3.jpeg') }}", type: "image" },
+      { src: "{{ url_for('static', filename='images/galerija4.jpeg') }}", type: "image" },
+      { src: "{{ url_for('static', filename='images/galerija5.jpeg') }}", type: "image" },
+      { src: "{{ url_for('static', filename='images/galerija6.jpeg') }}", type: "image" }, /* Dodat zarez */
+      { src: "{{ url_for('static', filename='images/galerija7.jpeg') }}", type: "image" }, /* Dodat zarez */
+      { src: "{{ url_for('static', filename='images/galerija8.jpeg') }}", type: "image" }, /* Dodat zarez */
+      { src: "{{ url_for('static', filename='images/galerija9.jpeg') }}", type: "image" }  /* Poslednji bez zareza */
+    ]);
+  }
+</script>
+
+ <section class="how" id="how">
     <h2>How it works</h2>
     <div class="steps">
       <div>Send me Your pet’s photos</div>
@@ -97,7 +141,8 @@
     </div>
   </section>
 
-  <section class="why">
+
+   <section class="why">
   <h2>Why choose Woolice Felts?</h2>
 
   <div class="why-content">
@@ -120,92 +165,136 @@
   </div>
 </section>
 
-  <section class="gallery" id="gallery">
-  <h2 class="gallery-title">Gallery</h2>
-  <p class="gallery-description">Every sculpture is unique and made to capture the spirit of each dog.</p>
-
-  <div class="gallery-grid">
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija1.jpeg') }}"></div>
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija2.jpeg') }}"></div>
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija3.jpeg') }}"></div>
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija4.jpeg') }}"></div>
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija5.jpeg') }}"></div>
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija6.jpeg') }}"></div>
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija10.jpeg') }}"></div>
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija8.jpeg') }}"></div>
-    <div class="gallery-item"><img src="{{ url_for('static', filename='images/galerija9.jpeg') }}"></div>
+   <section id="about">
+  <div class="about-container">
+    
+    <img src="{{ url_for('static', filename='images/about1.jpeg') }}" class="about-bg-image" alt="Background">
+    
+    <div class="about-content">
+      <h2>About me</h2>
+      <p>Hi, I’m Kristina, the artist behind Woolice Felts. 🐾</p>
+      <p>I started my journey with needle felting over 10 years ago, combining my love for animals and creativity into something truly meaningful. What began as a simple passion slowly grew into a way of preserving special memories through art.</p>
+      <p>Today, I create handmade needle felted dog sculptures, each one carefully crafted to capture the unique personality of your pet. Every piece is made to order, based on your photos, with attention to even the smallest details.</p>
+      <p>I understand how important pets are they are family. That’s why I put so much care, patience, and love into every sculpture I make. No two pieces are ever the same, just like no two dogs are the same. Thank you for being here and trusting me with something so personal.</p>
+    </div>
   </div>
 </section>
 
 
-
-   <section id="shop" class="product-section">
-    <div class="product-container">
-        <div class="product-gallery">
-            <div class="main-image">
-                <img src="{{ url_for('static', filename='images/pom1.jpg') }}" id="expandedImg">
-            </div>
-            <div class="thumbnail-grid">
-                <img src="{{ url_for('static', filename='images/pom1.jpg') }}" onclick="document.getElementById('expandedImg').src=this.src">
-                <img src="{{ url_for('static', filename='images/pom2.jpg') }}" onclick="document.getElementById('expandedImg').src=this.src">
-                <img src="{{ url_for('static', filename='images/pom3.jpg') }}" onclick="document.getElementById('expandedImg').src=this.src">
-                <img src="{{ url_for('static', filename='images/pom4.jpg') }}" onclick="document.getElementById('expandedImg').src=this.src">
-            </div>
+ 
+   <section class="order-section" id="price">
+  <div class="container text-center">
+    <h2 class="section-title">Order Your Sculpture</h2>
+    <p class="section-subtitle">Choose a ready-to-ship sculpture or request a custom creation tailored from your photos.</p>
+    
+    <div class="products-grid">
+      
+      <div class="product-card">
+        <div class="card-gallery">
+          <div class="card-main-image">
+            <a href="{{ url_for('static', filename='images/pom1.jpg') }}" data-fancybox="pomeranian-gallery">
+              <img src="{{ url_for('static', filename='images/pom1.jpg') }}" alt="Needle Felted Pomeranian">
+            </a>
+          </div>
+          <div class="card-thumbnails">
+            <a href="{{ url_for('static', filename='images/pom1.jpg') }}" data-fancybox="pomeranian-gallery">
+              <img src="{{ url_for('static', filename='images/pom1.jpg') }}">
+            </a>
+            <a href="{{ url_for('static', filename='images/pom2.jpg') }}" data-fancybox="pomeranian-gallery">
+              <img src="{{ url_for('static', filename='images/pom2.jpg') }}">
+            </a>
+            <a href="{{ url_for('static', filename='images/pom3.jpg') }}" data-fancybox="pomeranian-gallery">
+              <img src="{{ url_for('static', filename='images/pom3.jpg') }}">
+            </a>
+            <a href="{{ url_for('static', filename='images/pom4.jpg') }}" data-fancybox="pomeranian-gallery">
+              <img src="{{ url_for('static', filename='images/pom4.jpg') }}">
+            </a>
+          </div>
         </div>
 
-        <div class="product-info">
-    <h1>Needle Felted Pomeranian</h1>
-    <p class="price">$80.00 USD</p>
-    <div class="specs">
-        <p><strong>Size:</strong> Approx. 3.5 inches (9 cm)</p>
-        <p><strong>Material:</strong> 100% wool</p>
-        <p><strong>Ready to ship:</strong> 1-2 business days</p>
-    </div>
-    <p class="description">This adorable 3.5-inch Pomeranian sculpture is handmade from 100% wool...</p>
-    
-    <div id="paypal-container-P2FGLP4694Q4A"></div>
-    <script>
-      paypal.HostedButtons({
-        hostedButtonId: "P2FGLP4694Q4A",
-      }).render("#paypal-container-P2FGLP4694Q4A")
-    </script>
-</div>
-</section>
+        <div class="card-info">
+          <span class="card-badge">Ready to ship</span>
+          <h3>Needle Felted Pomeranian</h3>
+          <div class="card-price">$80.00 USD</div>
+          <div class="card-specs">
+            <p><span>Size:</span> Approx. 3.5 inches (9 cm)</p>
+            <p><span>Material:</span> 100% organic wool</p>
+            <p><span>Ready to ship:</span> 1-2 business days</p>
+          </div>
+          <p class="card-desc">This adorable 3.5-inch Pomeranian sculpture is handmade from 100% wool, capturing the soft texture and sweet expression of the breed.</p>
+        </div>
 
-  <section class="price" id="price">
-  <div class="product-container">
-    
-    <div class="product-info">
-      <h1>Custom dog sculpture</h1>
-      <p class="price">$130.00</p>
-      <p class="description">Looking for a heartfelt, handmade way to remember your beloved dog?</p>
-      
-      <div class="specs">
-        <p><strong>Waiting time:</strong> 6–8 weeks</p>
-        <p><strong>Size:</strong> 3–4"</p>
-        <p><strong>Eyes:</strong> Round black glass</p>
-        <p>You can send photos to: <br><strong><a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a></strong></p>
+        <div class="paypal-wrapper">
+          <div id="paypal-container-P2FGLP4694Q4A"></div>
+          <script>
+            paypal.HostedButtons({
+              hostedButtonId: "P2FGLP4694Q4A",
+            }).render("#paypal-container-P2FGLP4694Q4A")
+          </script>
+        </div>
       </div>
-    </div>
 
-    <div class="product-info order-box">
-      <h3>Place your order</h3>
-      <form id="order-form" class="order-fields">
-        <input type="text" placeholder="Your name" required>
-        <input type="email" placeholder="Your email" required>
-        <textarea placeholder="Tell me about your dog"></textarea>
-      </form>
+      <div class="product-card">
+        <div class="card-gallery">
+          <div class="card-main-image">
+            <a href="{{ url_for('static', filename='images/galerija1.jpeg') }}" data-fancybox="custom-gallery">
+              <img src="{{ url_for('static', filename='images/galerija1.jpeg') }}" alt="Custom Dog Sculpture">
+            </a>
+          </div>
+          <div class="card-thumbnails">
+            <a href="{{ url_for('static', filename='images/galerija1.jpeg') }}" data-fancybox="custom-gallery">
+              <img src="{{ url_for('static', filename='images/galerija1.jpeg') }}">
+            </a>
+            <a href="{{ url_for('static', filename='images/galerija2.jpeg') }}" data-fancybox="custom-gallery">
+              <img src="{{ url_for('static', filename='images/galerija2.jpeg') }}">
+            </a>
+            <a href="{{ url_for('static', filename='images/galerija3.jpeg') }}" data-fancybox="custom-gallery">
+              <img src="{{ url_for('static', filename='images/galerija3.jpeg') }}">
+            </a>
+            <a href="{{ url_for('static', filename='images/galerija4.jpeg') }}" data-fancybox="custom-gallery">
+              <img src="{{ url_for('static', filename='images/galerija4.jpeg') }}">
+            </a>
+          </div>
+        </div>
 
-      <div id="paypal-container-CUSTOM"></div>
-      <script>
-        paypal.HostedButtons({
-          hostedButtonId: "H24CVD3H5JH94",
-        }).render("#paypal-container-CUSTOM")
-      </script>
+        <div class="card-info">
+          <span class="card-badge gold">Commission</span>
+          <h3>Custom Dog Sculpture</h3>
+          <div class="card-price">$130.00 USD</div>
+          <div class="card-specs">
+            <p><span>Waiting time:</span> 6-8 weeks</p>
+            <p><span>Size:</span> 3-4" (perfect for display)</p>
+            <p><span>Eyes:</span> Round black glass</p>
+          </div>
+          <p class="card-desc">Looking for a heartfelt, handmade way to remember your beloved dog? Crafted directly from your personal photos with extreme care. You can send photos to mywoolice@gmail.com.</p>
+        </div>
+
+        <div class="paypal-wrapper">
+          <div id="paypal-container-CUSTOM"></div>
+          <script>
+            paypal.HostedButtons({
+              hostedButtonId: "H24CVD3H5JH94",
+            }).render("#paypal-container-CUSTOM")
+          </script>
+        </div>
+      </div>
+
     </div>
-    
   </div>
 </section>
+
+   
+
+<!-- SCRIPT PANO ZA PAYPAL INICIJALIZACIJU (Ostavi na dnu pre zatvaranja body-ja) -->
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "P2FGLP4694Q4A",
+  }).render("#paypal-container-P2FGLP4694Q4A");
+
+  paypal.HostedButtons({
+    hostedButtonId: "H24CVD3H5JH94",
+  }).render("#paypal-container-CUSTOM");
+</script>
  
   <section class="faq" id="faq">
   <h2 class="section-title">FAQ</h2>
@@ -234,14 +323,30 @@
 </section>
     
 
-  <section class="contact">
-    <h2>Contact</h2>
+  <section class="contact-wrapper">
+  <div class="contact-card">
+    <!-- LEVA STRANA -->
+    <div class="contact-left">
+  <h2>Get in touch</h2>
+  <div class="contact-item">
+    <p class="label">Email:</p>
+    <a href="mailto:mywoolice@gmail.com" class="link">mywoolice@gmail.com</a>
+  </div>
+  <div class="contact-item">
+    <p class="label">Instagram:</p>
+    <a href="https://www.instagram.com/woolicefelts" target="_blank" class="link">@woolicefelts</a>
+  </div>
+</div>
 
-    <div class="contact-box">
-      <p>📧 Email: <a href="mailto:mywoolice@gmail.com">mywoolice@gmail.com</a></p>
-      <p>📷 Instagram: <a href="https://instagram.com/woolicefelts" target="_blank">@woolicefelts</a></p>
-    </div>
-  </section>
+    <!-- DESNA STRANA -->
+    <form class="contact-right">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Email address">
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
 
   <footer class="footer">
     <p>© Woolice Felts</p>
@@ -269,6 +374,13 @@
       window.open("https://paypal.me/woolicefelts/130", "_blank");
   });
   </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+<script>
+  Fancybox.bind("[data-fancybox]", {
+    Thumbs: { autoStart: false }
+  });
+</script>
 
 </body>
 </html>
