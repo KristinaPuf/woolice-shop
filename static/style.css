@@ -35,7 +35,7 @@ body {
   margin: 0;
   /* Povećaj ovo ako je navigacija i dalje nisko, 
      ili smanji ako je preveliki razmak */
-  padding-top: 150px; 
+  padding-top: 0px; 
 }
 
 /* Kontejner za sve linkove */
@@ -110,14 +110,14 @@ section h2::after {
    HEADER & LOGO
 ========================= */
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   background-color: #faeae6;
-  padding: 15px 50px;
+  padding: 15px;
   display: flex;
-  justify-content: space-between;
+  flex-direction:column
   align-items: center;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -658,6 +658,9 @@ section h2::after {
   margin-bottom: 50px;      /* Dodaje prostor između 'how' i sledeće sekcije */
 }
 
+
+
+
 /* Galerija */
 .product-gallery { flex: 1; }
 .main-image img { width: 100%; border-radius: 10px; height: 400px; object-fit: cover; }
@@ -684,6 +687,7 @@ section h2::after {
     transition: 0.3s;
 }
 .buy-btn:hover { background: #a57447; }
+
 
 
 
@@ -875,47 +879,65 @@ section h2::after {
   width: 100%;
 }
 
-/* SVE ZA MOBILNI NA JEDNOM MESTU */
+.gallery-section {
+  clear: both; /* Ovo govori browseru: "ne dozvoli ništa pored sebe, budi ispod" */
+  padding-top: 50px; /* Dodaje malo vazduha između sekcija */
+  width: 100%;
+}
+
+/* RESPONSIVE - Prilagođavanje za telefone */
 @media (max-width: 768px) {
-  /* 1. Zaglavlje */
+  .products-grid {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+  }
+  .product-card {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* Prilagođavanje za telefone (ekrani manji od 768px) */
+@media (max-width: 768px) {
+  
+  /* 1. Sređivanje navigacije (da dugmići ne budu ogromni) */
   .header {
     flex-direction: column;
-    height: auto !important;
+    height: auto;
     padding: 10px;
   }
-  
+
   .nav-links {
-    flex-direction: column; /* Linkovi jedan ispod drugog */
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  /* 2. Hero sekcija */
-  .hero {
     flex-direction: column;
-    text-align: center;
-    padding: 20px;
-  }
-  .hero-sticker { width: 250px !important; }
-
-  /* 3. Galerija - CENTRIRANJE */
-  .gallery-grid {
-    grid-template-columns: 1fr;
-    justify-items: center; /* OVO CENTRIRA KARTICE */
     width: 100%;
   }
-  
-  .gallery-card {
-    width: 90%; /* Da ne budu preširoke na mobilnom */
-    margin: 20px auto;
+
+  /* 2. Sređivanje Get in touch sekcije */
+  .contact-container {
+    flex-direction: column; /* Ređa elemente jedan ispod drugog */
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
   }
 
-  /* 4. Kontakt sekcija */
-  .contact-section, .contact-card {
-    grid-template-columns: 1fr;
-    padding: 20px;
+  .form-group {
+    width: 100%; /* Forma zauzima celu širinu */
   }
 }
 
 
 
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 20px; /* Mali razmak od zaglavlja */
+  }
+  
+  .hero-image {
+    order: -1; /* Slika psa ide iznad teksta */
+    margin-top: 0 !important;
+    margin-bottom: 20px;
+  }
+}
