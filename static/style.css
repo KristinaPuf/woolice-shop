@@ -1004,5 +1004,33 @@ section h2::after {
   }
 }
 
+/* Prilagođavanje za telefone (ekrani manji od 768px) */
+@media (max-width: 768px) {
+  
+  /* 1. Sređivanje navigacije (da dugmići ne budu ogromni) */
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* 2. Sređivanje Get in touch sekcije */
+  .contact-container {
+    flex-direction: column; /* Ređa elemente jedan ispod drugog */
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .form-group {
+    width: 100%; /* Forma zauzima celu širinu */
+  }
+}
+
 
 
