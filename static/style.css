@@ -15,7 +15,7 @@ html {
 
 /* 1. Zaglavlje (nav) - Fiksiranje i boja */
 nav {
-  position: fixed;      /* Zaglavlje je uvek prilepljeno za vrh */
+  position: relative;      /* Zaglavlje je uvek prilepljeno za vrh */
   top: 0;               /* Tačno na vrhu ekrana */
   left: 0;              /* Od leve ivice */
   width: 100%;          /* Puna širina ekrana */
@@ -710,20 +710,21 @@ section h2::after {
 
 .products-grid {
   display: flex;
-  max-width: 720px; /* Dodatno smanjeno da oglasi budu još diskretniji i manji */
+  max-width: 1050px; /* Povećali smo max-width da stane 3 kartice */
   margin: 0 auto;
   gap: 20px; 
   justify-content: center;
   align-items: stretch;
+  flex-wrap: wrap; /* Ovo je ključno: ako nema mesta, prebaciće u novi red */
 }
 
 .product-card {
   background: #ffffff;
-  flex: 1;
-  max-width: 330px; /* Smanjena širina same kartice na vrlo kompaktnu meru */
+  flex: 1 1 300px; /* Fleksibilna širina: minimum 300px, ali raste */
+  max-width: 330px; 
   border: 1px solid #eae5df; 
   border-radius: 16px;
-  padding: 16px; /* Manji unutrašnji razmak */
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

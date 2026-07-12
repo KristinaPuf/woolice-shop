@@ -189,6 +189,7 @@
     
     <div class="products-grid">
       
+      <!-- Oglas 1: Pomeranac -->
       <div class="product-card">
         <div class="card-gallery">
           <div class="card-main-image">
@@ -197,21 +198,12 @@
             </a>
           </div>
           <div class="card-thumbnails">
-            <a href="{{ url_for('static', filename='images/pom1.jpg') }}" data-fancybox="pomeranian-gallery">
-              <img src="{{ url_for('static', filename='images/pom1.jpg') }}">
-            </a>
-            <a href="{{ url_for('static', filename='images/pom2.jpg') }}" data-fancybox="pomeranian-gallery">
-              <img src="{{ url_for('static', filename='images/pom2.jpg') }}">
-            </a>
-            <a href="{{ url_for('static', filename='images/pom3.jpg') }}" data-fancybox="pomeranian-gallery">
-              <img src="{{ url_for('static', filename='images/pom3.jpg') }}">
-            </a>
-            <a href="{{ url_for('static', filename='images/pom4.jpg') }}" data-fancybox="pomeranian-gallery">
-              <img src="{{ url_for('static', filename='images/pom4.jpg') }}">
-            </a>
+            <a href="{{ url_for('static', filename='images/pom1.jpg') }}" data-fancybox="pomeranian-gallery"><img src="{{ url_for('static', filename='images/pom1.jpg') }}"></a>
+            <a href="{{ url_for('static', filename='images/pom2.jpg') }}" data-fancybox="pomeranian-gallery"><img src="{{ url_for('static', filename='images/pom2.jpg') }}"></a>
+            <a href="{{ url_for('static', filename='images/pom3.jpg') }}" data-fancybox="pomeranian-gallery"><img src="{{ url_for('static', filename='images/pom3.jpg') }}"></a>
+            <a href="{{ url_for('static', filename='images/pom4.jpg') }}" data-fancybox="pomeranian-gallery"><img src="{{ url_for('static', filename='images/pom4.jpg') }}"></a>
           </div>
         </div>
-
         <div class="card-info">
           <span class="card-badge">Ready to ship</span>
           <h3>Needle Felted Pomeranian</h3>
@@ -223,17 +215,12 @@
           </div>
           <p class="card-desc">This adorable 3.5-inch Pomeranian sculpture is handmade from 100% wool, capturing the soft texture and sweet expression of the breed.</p>
         </div>
-
         <div class="paypal-wrapper">
           <div id="paypal-container-P2FGLP4694Q4A"></div>
-          <script>
-            paypal.HostedButtons({
-              hostedButtonId: "P2FGLP4694Q4A",
-            }).render("#paypal-container-P2FGLP4694Q4A")
-          </script>
         </div>
       </div>
 
+      <!-- Oglas 2: Custom Sculpture -->
       <div class="product-card">
         <div class="card-gallery">
           <div class="card-main-image">
@@ -242,21 +229,12 @@
             </a>
           </div>
           <div class="card-thumbnails">
-            <a href="{{ url_for('static', filename='images/galerija1.jpeg') }}" data-fancybox="custom-gallery">
-              <img src="{{ url_for('static', filename='images/galerija1.jpeg') }}">
-            </a>
-            <a href="{{ url_for('static', filename='images/galerija2.jpeg') }}" data-fancybox="custom-gallery">
-              <img src="{{ url_for('static', filename='images/galerija2.jpeg') }}">
-            </a>
-            <a href="{{ url_for('static', filename='images/galerija3.jpeg') }}" data-fancybox="custom-gallery">
-              <img src="{{ url_for('static', filename='images/galerija3.jpeg') }}">
-            </a>
-            <a href="{{ url_for('static', filename='images/galerija4.jpeg') }}" data-fancybox="custom-gallery">
-              <img src="{{ url_for('static', filename='images/galerija4.jpeg') }}">
-            </a>
+            <a href="{{ url_for('static', filename='images/galerija1.jpeg') }}" data-fancybox="custom-gallery"><img src="{{ url_for('static', filename='images/galerija1.jpeg') }}"></a>
+            <a href="{{ url_for('static', filename='images/galerija2.jpeg') }}" data-fancybox="custom-gallery"><img src="{{ url_for('static', filename='images/galerija2.jpeg') }}"></a>
+            <a href="{{ url_for('static', filename='images/galerija3.jpeg') }}" data-fancybox="custom-gallery"><img src="{{ url_for('static', filename='images/galerija3.jpeg') }}"></a>
+            <a href="{{ url_for('static', filename='images/galerija4.jpeg') }}" data-fancybox="custom-gallery"><img src="{{ url_for('static', filename='images/galerija4.jpeg') }}"></a>
           </div>
         </div>
-
         <div class="card-info">
           <span class="card-badge gold">Commission</span>
           <h3>Custom Dog Sculpture</h3>
@@ -268,32 +246,38 @@
           </div>
           <p class="card-desc">Looking for a heartfelt, handmade way to remember your beloved dog? Crafted directly from your personal photos with extreme care. You can send photos to mywoolice@gmail.com.</p>
         </div>
-
         <div class="paypal-wrapper">
           <div id="paypal-container-CUSTOM"></div>
-          <script>
-            paypal.HostedButtons({
-              hostedButtonId: "H24CVD3H5JH94",
-            }).render("#paypal-container-CUSTOM")
-          </script>
         </div>
       </div>
 
-    </div>
+      <!-- Oglas 3: Planner -->
+      <div class="product-card">
+        <div class="card-gallery">
+          <div class="card-main-image">
+            <img src="{{ url_for('static', filename='images/planner.jpeg') }}" alt="Woolice Felts Planner 2026">
+          </div>
+        </div>
+        <div class="card-info">
+          <span class="card-badge">Digital Download</span>
+          <h3>Woolice Felts Planner 2026</h3>
+          <div class="card-price">$14.99 USD</div>
+          <p class="card-desc">Bring warmth to your year with our 2026 planner. Features 12 unique photographs of my handmade sculptures. Instant download, ready for printing!</p>
+        </div>
+        <div class="paypal-wrapper">
+          <div id="paypal-container-9QZ5CQ24DXXGC"></div>
+        </div>
+      </div>
+
+    </div> <!-- Kraj products-grid -->
   </div>
 </section>
 
-   
-
-<!-- SCRIPT PANO ZA PAYPAL INICIJALIZACIJU (Ostavi na dnu pre zatvaranja body-ja) -->
+<!-- Skripta za sva tri dugmeta na dnu -->
 <script>
-  paypal.HostedButtons({
-    hostedButtonId: "P2FGLP4694Q4A",
-  }).render("#paypal-container-P2FGLP4694Q4A");
-
-  paypal.HostedButtons({
-    hostedButtonId: "H24CVD3H5JH94",
-  }).render("#paypal-container-CUSTOM");
+  paypal.HostedButtons({ hostedButtonId: "P2FGLP4694Q4A" }).render("#paypal-container-P2FGLP4694Q4A");
+  paypal.HostedButtons({ hostedButtonId: "H24CVD3H5JH94" }).render("#paypal-container-CUSTOM");
+  paypal.HostedButtons({ hostedButtonId: "9QZ5CQ24DXXGC" }).render("#paypal-container-9QZ5CQ24DXXGC");
 </script>
  
   <section class="faq" id="faq">
