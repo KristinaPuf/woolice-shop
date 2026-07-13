@@ -43,6 +43,7 @@ body {
   display: flex;
   gap: 15px;
   align-items: center;
+  color: #5D4037;
 }
 
 /* Osnovni stil za sve dugmiće */
@@ -271,7 +272,7 @@ section h2::after {
 .about-content h2 {
   font-family: 'Playfair Display', serif;
   font-size: 2.2rem;
-  color: #2c2520; /* Vraćena stara tamna boja naslova */
+  color: #857263; /* Vraćena stara tamna boja naslova */
   margin-bottom: 25px;
 }
 
@@ -364,6 +365,7 @@ section h2::after {
   width: 260px; 
   box-shadow: 0 5px 15px rgba(0,0,0,0.04);
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Dodato za glatki efekat */
+  color:#5D4037;
 }
 
 .why-card:hover {
@@ -580,11 +582,12 @@ section h2::after {
   font-weight: bold;
   font-size: 1.1rem;
   outline: none;
+  color: #5D4037; /* Tamna boja za naslov pitanja */
 }
 
 .faq-item p {
   margin-top: 15px;
-  color: #666;
+  color: #5D4037;
   line-height: 1.6;
 }
 
@@ -614,7 +617,7 @@ section h2::after {
 
 .how h2 {
   font-size: 2.2rem;
-  color: #333;
+  color: #5d4037;
   margin-bottom: 40px;
   position: relative;
   letter-spacing: 1px;
