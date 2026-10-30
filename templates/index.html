@@ -125,7 +125,7 @@
 <script>
   function openGallery() {
     // KLJUČNO: Svaki red u nizu MORA da se završi zarezom (,) osim poslednjeg!
-    // Ispravio sam redove 6, 7 i 8 tako da imaju zarez na kraju.
+    
     Fancybox.show([
       { src: "{{ url_for('static', filename='images/galerija1.jpeg') }}", type: "image" },
       { src: "{{ url_for('static', filename='images/galerija2.jpeg') }}", type: "image" },
@@ -191,7 +191,7 @@
 
 
  
-   <section class="order-section" id="price">
+<section class="order-section" id="price">
   <div class="container text-center">
     <h2 class="section-title">Order Your Sculpture</h2>
     <p class="section-subtitle">Choose a ready-to-ship sculpture or request a custom creation tailored from your photos.</p>
@@ -229,7 +229,43 @@
         </div>
       </div>
 
-      <!-- Oglas 2: Custom Sculpture -->
+      <!-- Oglas 2: Novi Pomeranac (Na akciji) -->
+      <div class="product-card">
+        <div class="card-gallery">
+          <div class="card-main-image">
+            <a href="{{ url_for('static', filename='images/poms1.jpeg') }}" data-fancybox="pomeranian-new-gallery">
+              <img src="{{ url_for('static', filename='images/poms1.jpeg') }}" alt="Needle Felted Pomeranian">
+            </a>
+          </div>
+          <div class="card-thumbnails">
+            <a href="{{ url_for('static', filename='images/poms1.jpeg') }}" data-fancybox="pomeranian-new-gallery"><img src="{{ url_for('static', filename='images/poms1.jpeg') }}"></a>
+            <a href="{{ url_for('static', filename='images/poms2.jpeg') }}" data-fancybox="pomeranian-new-gallery"><img src="{{ url_for('static', filename='images/poms2.jpeg') }}"></a>
+            <a href="{{ url_for('static', filename='images/poms3.jpeg') }}" data-fancybox="pomeranian-new-gallery"><img src="{{ url_for('static', filename='images/poms3.jpeg') }}"></a>
+            <a href="{{ url_for('static', filename='images/poms4.jpeg') }}" data-fancybox="pomeranian-new-gallery"><img src="{{ url_for('static', filename='images/poms4.jpeg') }}"></a>
+            <a href="{{ url_for('static', filename='images/poms5.jpeg') }}" data-fancybox="pomeranian-new-gallery"><img src="{{ url_for('static', filename='images/poms5.jpeg') }}"></a>
+            <a href="{{ url_for('static', filename='images/poms6.jpeg') }}" data-fancybox="pomeranian-new-gallery"><img src="{{ url_for('static', filename='images/poms6.jpeg') }}"></a>
+          </div>
+        </div>
+        <div class="card-info">
+          <span class="card-badge">Sale</span>
+          <h3>Needle Felted Pomeranian</h3>
+          <div class="card-price">
+            <span class="old-price" style="text-decoration: line-through; color: #888; font-size: 0.9em; margin-right: 8px;">$100.00 USD</span>
+            <span class="current-price" style="color: #d9534f; font-weight: bold;">$80.00 USD</span>
+          </div>
+          <div class="card-specs">
+            <p><span>Size:</span> Approx. 3.5 inches (9 cm)</p>
+            <p><span>Material:</span> 100% organic wool</p>
+            <p><span>Ready to ship:</span> 1-2 business days</p>
+          </div>
+          <p class="card-desc">A fluffy, beautifully hand-crafted Pomeranian miniature sculpture looking for a loving home. Made with meticulous attention to detail.</p>
+        </div>
+        <div class="paypal-wrapper">
+          <div id="paypal-container-PCX7X2BUL9T88"></div>
+        </div>
+      </div>
+
+      <!-- Oglas 3: Custom Sculpture -->
       <div class="product-card">
         <div class="card-gallery">
           <div class="card-main-image">
@@ -256,11 +292,11 @@
           <p class="card-desc">Looking for a heartfelt, handmade way to remember your beloved dog? Crafted directly from your personal photos with extreme care. You can send photos to mywoolice@gmail.com.</p>
         </div>
         <div class="paypal-wrapper">
-          <div id="paypal-container-CUSTOM"></div>
+          <div id="paypal-container-H24CVD3H5JH94"></div>
         </div>
       </div>
 
-      <!-- Oglas 3: Planner -->
+      <!-- Oglas 4: Planner -->
       <div class="product-card">
         <div class="card-gallery">
           <div class="card-main-image">
@@ -282,13 +318,14 @@
   </div>
 </section>
 
-<!-- Skripta za sva tri dugmeta na dnu -->
+<!-- Skripta za sva PayPal dugmad -->
 <script>
   paypal.HostedButtons({ hostedButtonId: "P2FGLP4694Q4A" }).render("#paypal-container-P2FGLP4694Q4A");
-  paypal.HostedButtons({ hostedButtonId: "H24CVD3H5JH94" }).render("#paypal-container-CUSTOM");
+  paypal.HostedButtons({ hostedButtonId: "PCX7X2BUL9T88" }).render("#paypal-container-PCX7X2BUL9T88");
+  paypal.HostedButtons({ hostedButtonId: "H24CVD3H5JH94" }).render("#paypal-container-H24CVD3H5JH94");
   paypal.HostedButtons({ hostedButtonId: "9QZ5CQ24DXXGC" }).render("#paypal-container-9QZ5CQ24DXXGC");
 </script>
- 
+
   <section class="faq" id="faq">
   <h2 class="section-title">FAQ</h2>
   
