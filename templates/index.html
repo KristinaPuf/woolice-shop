@@ -1386,6 +1386,13 @@ body > .card-badge,
   position: relative;
   z-index: 1;
 }
+
+/* Prilagođavanje za telefone - tačno 2 kartice po redu */
+@media (max-width: 768px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
 </style>
   </style>
 </head>
