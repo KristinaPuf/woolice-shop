@@ -1,22 +1,20 @@
-# Woolice Shop
+# Woolice Felts
 
-This is a web application for my personal business—a shop specializing in handmade needle-felted dog sculptures.
+Handmade needle-felted dog sculptures: shop, gallery and custom order form.
 
-## 🛠️ Tech Stack
-* *Frontend:* HTML5, CSS3
-* *Backend:* Python (Flask framework)
-* *Deployment:* Render
+## Structure
+```
+index.html        (stranica, radi i na GitHub Pages i na Renderu)
+static/images/    (sve slike)
+app.py            (Flask backend: /order šalje porudžbinu na Telegram)
+requirements.txt
+.env              (BOT_TOKEN i CHAT_ID, nikad na GitHub)
+.nojekyll
+```
 
-## 🚀 About the Project
-I built this project to combine my creative skills with web development. The goal was to create a functional, responsive platform to showcase my handmade products. 
+## Render
+Start command: `gunicorn app:app`
+Environment variables: `BOT_TOKEN`, `CHAT_ID`
 
-Key features include:
-- A clean, user-friendly interface.
-- Backend integration using Flask for data handling.
-- Fully responsive design for mobile and desktop users.
-
-## 🌐 Live Demo
-Check out the live website here: https://kristinapuf.github.io/woolice-shop/
-
----
-Created by Kristina
+## GitHub Pages
+U `index.html` zameni `PUT_YOUR_RENDER_URL_HERE` adresom Render servisa.

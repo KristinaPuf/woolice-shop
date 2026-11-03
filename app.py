@@ -1,25 +1,30 @@
-import requests
-from flask import Flask, request, jsonify, render_template  
-from flask_cors import CORS
 import json
 import os
-from dotenv import load_dotenv
 
-# Load .env
+import requests
+from dotenv import load_dotenv
+from flask import Flask, jsonify, request, send_from_directory
+from flask_cors import CORS
+
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
 
-@app.route("/")
-def index():
-    return render_template("index.html")
+# Dozvoljeni sajtovi koji smeju da šalju porudžbine (GitHub Pages + Render)
+CORS(app, origins=[
+    "https://kristinapuf.github.io",
+    os.getenv("RENDER_EXTERNAL_URL", ""),
+])
 
 ORDERS_FILE = "orders.json"
 
-# TELEGRAM SETTINGS
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
+
+
+@app.route("/")
+def index():
+    return send_from_directory(".", "index.html")
 
 
 def send_telegram_message(message):
@@ -28,64 +33,56 @@ def send_telegram_message(message):
         return
 
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
-
     try:
-        requests.post(url, data={
-            "chat_id": CHAT_ID,
-            "text": message
-        })
-    except Exception as e:
-        print("Telegram error:", e)
+        requests.post(url, data={"chat_id": CHAT_ID, "text": message}, timeout=10)
+    except requests.RequestException as e:
+        print("Telegram error:", type(e).__name__)  # bez tokena u logovima
 
 
-# LOAD ORDERS
 def load_orders():
     try:
-        with open(ORDERS_FILE, "r") as f:
+        with open(ORDERS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
-    except:
+    except (FileNotFoundError, json.JSONDecodeError):
         return []
 
 
-# SAVE ORDERS
 def save_orders(orders):
-    with open(ORDERS_FILE, "w") as f:
-        json.dump(orders, f, indent=2)
+    with open(ORDERS_FILE, "w", encoding="utf-8") as f:
+        json.dump(orders, f, indent=2, ensure_ascii=False)
 
 
-# ORDER ROUTE
 @app.route("/order", methods=["POST"])
 def order():
-    data = request.json
+    data = request.get_json(silent=True) or {}
 
-    # Save order locally
+    name = str(data.get("name", "")).strip()[:100]
+    email = str(data.get("email", "")).strip()[:150]
+    details = str(data.get("details", "")).strip()[:2000]
+
+    if not name or "@" not in email or not details:
+        return jsonify({"message": "Please fill in all fields."}), 400
+
+    clean = {"name": name, "email": email, "details": details}
+
     orders = load_orders()
-    orders.append(data)
+    orders.append(clean)
     save_orders(orders)
 
-    # Telegram message
-    message = f"""
-🐶 New Woolice Order
-
-👤 Name: {data.get('name')}
-📧 Email: {data.get('email')}
-📝 Details: {data.get('details')}
-"""
-
-    send_telegram_message(message)
-
-    print("SENDING TO TELEGRAM:", message)
-    print("TOKEN:", BOT_TOKEN)
-    print("CHAT:", CHAT_ID)
+    send_telegram_message(
+        f"🐶 New Woolice Order\n\n"
+        f"👤 Name: {name}\n"
+        f"📧 Email: {email}\n"
+        f"📝 Details: {details}"
+    )
 
     return jsonify({"message": "Order received!"})
 
 
-# GET ORDERS
-@app.route("/orders", methods=["GET"])
-def get_orders():
-    return jsonify(load_orders())
+# Ruta /orders je namerno uklonjena: bila je javna i prikazivala je
+# imena i mejlove kupaca svakome ko otvori adresu.
 
 
-if __name__=="__main__":
-    app.run(host="0.0.0.0", port=10000, debug=True)
+if __name__ == "__main__":
+    port = int(os.getenv("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
