@@ -279,8 +279,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
         <div class="paypal-wrapper" id="paypal-container-H24CVD3H5JH94"></div>
       </div>
 
-      <!-- Oglas 4: Planner -->
-      <div class="product-card" style="display:none"></div>
+      <!-- PLANNER SAKRIVEN. Da ga vratis, obrisi znake za komentar oko bloka ispod, i obrisi // ispred paypal linije pri dnu fajla.
+      <div class="product-card" style="display:none">
         <div>
           <div class="card-main-image">
             <img loading="lazy" src="static/images/planner.jpeg" alt="Woolice Felts Planner 2026">
@@ -289,7 +289,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
           <h3>Woolice Felts Planner 2026</h3>
           <div class="card-price">$14.99 USD</div>
 
-          <!-- Padajući meni za sakrivanje detalja -->
+          
           <details class="product-details-toggle">
             <summary>View details & description ▾</summary>
             <div class="details-content">
@@ -299,6 +299,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
         </div>
         <div class="paypal-wrapper" id="paypal-container-9QZ5CQ24DXXGC"></div>
       </div>
+      PLANNER KRAJ -->
 
     </div>
   </section>
@@ -511,13 +512,13 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
     paypal.HostedButtons({ hostedButtonId: "P2FGLP4694Q4A" }).render("#paypal-container-P2FGLP4694Q4A");
     paypal.HostedButtons({ hostedButtonId: "PCX7X2BUL9T88" }).render("#paypal-container-PCX7X2BUL9T88");
     paypal.HostedButtons({ hostedButtonId: "H24CVD3H5JH94" }).render("#paypal-container-H24CVD3H5JH94");
-    paypal.HostedButtons({ hostedButtonId: "9QZ5CQ24DXXGC" }).render("#paypal-container-9QZ5CQ24DXXGC");
+    // paypal.HostedButtons({ hostedButtonId: "9QZ5CQ24DXXGC" }).render("#paypal-container-9QZ5CQ24DXXGC");
   </script>
 
   <script>
-    // Adresa backenda na Renderu. Na Renderu radi i prazno (isti domen),
-    // ali na GitHub Pages MORA biti pun URL, npr. "https://woolice-shop-1.onrender.com"
-    const API_URL = location.hostname.endsWith("github.io") ? "https://woolice-shop-1.onrender.com" : "";
+    // Adresa backenda na Renderu (onrender.com). Proveri da je tacna u Renderu.
+    // Na woolice.art i GitHub Pages forma salje na ovu adresu.
+    const API_URL = location.hostname.endsWith("onrender.com") ? "" : "https://woolice-shop-1.onrender.com";
 
     document.getElementById("contact-form").addEventListener("submit", async (e) => {
       e.preventDefault();
